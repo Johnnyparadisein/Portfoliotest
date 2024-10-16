@@ -3,272 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI as Your Creative Partner: Expanding Horizons in Design with Generative Models</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>AI გრაფიკულ დიზაინში ტრენინგი - Powered by John</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans Georgian', sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
+            background-color: #e0e0e0;
         }
-        h1, h2, h3 {
-            color: #2c3e50;
+        h1 {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            color: #ffffff;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #4a00e0, #8e2de2);
+            padding: 30px;
+            border-radius: 15px;
         }
-        .section {
-            margin-bottom: 30px;
-            position: relative;
-            padding-left: 40px;
+        h2 {
+            font-family: 'Noto Sans Georgian', sans-serif;
+            color: #4a00e0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: bolder;
         }
-        .section::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #28b473;
+        h3 {
+            color: #8e2de2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: bolder;
         }
-        .section h2 {
+        .slide {
+            background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #4a00e0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .time {
+            font-weight: bold;
+            color: #6c757d;
+            font-size: 0.9em;
             margin-bottom: 10px;
+            font-style: italic;
         }
         .icon {
-            position: absolute;
-            left: -20px;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            background-color: #28b473;
-            border-radius: 50%;
+            font-size: 2em;
+            margin-right: 10px;
+            vertical-align: middle;
+            color: #8e2de2;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
         }
-        .time {
-            font-size: 0.9em;
-            color: #D81010;
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 255, 0.5);
+            z-index: 1;
+        }
+        .image-placeholder:hover {
+            background-color: #d5dbdb;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            width: 100%;
+        }
+        li {
             margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
         }
-        .case-study {
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-left: 5px solid #28b473;
+        li:before {
+            content: "\f0da";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #8e2de2;
+        }
+        a {
+            color: #4a00e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #8e2de2;
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4a00e0;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
             margin-top: 10px;
         }
-        .subsection {
-            margin-top: 20px;
+        .btn:hover {
+            background-color: #8e2de2;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .slide {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+                padding: 20px;
+            }
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
-	<img src="" alt="Timeline of AI Evolution" style="max-width: 100%;">
-<h1 style="font-size:4vw">AI as Your Creative Partner</h1>
-<h1>Expanding Horizons in Design with Generative Models</h1>
+    <h1><i class="fas fa-robot icon"></i> AI გრაფიკულ დიზაინში ტრენინგი - Powered by John</h1>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-user"></i></div>
-        <h2>About the Presenter</h2>
-        <div class="time">5 minutes (14:00 - 14:05)</div>
-        <p>Hello! I'm John Kvezereli, a passionate graphic designer with a deep fascination for generative AI tools. My journey in design has led me to explore the exciting intersection of creativity and artificial intelligence. I believe that AI is not just a tool, but a collaborative partner that can push the boundaries of what's possible in graphic design.
-
-With years of experience in traditional design and a growing expertise in AI-assisted creation, I'm thrilled to guide you through this workshop. My goal is to show you how AI can amplify your creativity, streamline your workflow, and open up new realms of visual possibilities.
-
-Let's embark on this exciting journey together and discover how AI can revolutionize your design process!</p>
-    </div>
-
-    <div class="section">
-        <div class="icon"><i class="fas fa-robot"></i></div>
-        <h2>1. The Evolution of AI and Generative Models</h2>
-        <div class="time">45 minutes (14:05 - 14:50)</div>
-        
-        <div class="subsection">
-            <h3>1.1 Introduction to AI and Historical Context</h3>
-            <p>AI has been a part of our lives for decades, evolving from simple rule-based systems to complex neural networks. Let's trace this evolution:</p>
-            <ul>
-                <li>1950s-1960s: Birth of AI, symbolic AI, and early neural networks</li>
-                <li>1970s-1980s: Expert systems and knowledge-based approaches</li>
-                <li>1990s-2000s: Machine learning and statistical approaches gain prominence</li>
-                <li>2010s-present: Deep learning revolution and the rise of generative models</li>
-            </ul>
-            <figure>
-        <img src="https://almablog-media.s3.ap-south-1.amazonaws.com/Evolution_of_AI_625377fa68.jpg" alt="Timeline of AI Evolution" style="max-width: 100%;">
-        <figcaption>Timeline of AI Evolution</figcaption>
-    </figure>
-            <div class="case-study">
-                <h4>Evolution of Generative Ai</h4>
-                <p>we will compare generative models</p>
-                <figure>
-        <img src="https://preview.redd.it/the-evolution-of-ai-image-generation-v0-798ohfbbxc2d1.png?auto=webp&s=a5764ccf5f99d4892c23e011a6826127e5114ad2" alt="Timeline of AI Evolution" style="max-width: 100%;">
-        <figcaption>Figure 1: Timeline of AI Evolution</figcaption>
-    </figure>
-          </div>
-        </div>
-
-        <div class="subsection">
-            <h3>1.2 Understanding Generative AI</h3>
-            <p>Generative AI refers to models that can create new content, be it text, images, audio, or even code. These models learn patterns from existing data and use this knowledge to generate new, original content.</p>
-            <p>Key concepts in generative AI:</p>
-            <ul>
-                <li>Latent spaces and vector representations</li>
-            </ul>
-        </div>
-
-        <div class="subsection">
-            <h3>1.3 Generative Adversarial Networks (GANs)</h3>
-            <p>GANs, introduced in 2014, revolutionized the field of generative AI:</p>
-            <ul>
-                <li>Architecture: Generator and Discriminator networks</li>
-                <li>Training process: The adversarial "game"</li>
-                <li>Evolution: From original GANs to StyleGAN3</li>
-            </ul>
-        </div>
-
-        <div class="subsection">
-            <h3>1.4 Diffusion Models and Stable Diffusion</h3>
-            <p>Diffusion models, a more recent development, have shown remarkable capabilities in image generation:</p>
-            <ul>
-                <li>Core concept: Gradual denoising process</li>
-                <li>Architecture of Stable Diffusion:
-                    <ul>
-                        <li>U-Net for denoising</li>
-                        <li>Variational Autoencoder (VAE) for image encoding/decoding</li>
-                        <li>Text encoder (often CLIP) for understanding prompts</li>
-                    </ul>
-                    
-        <img src="https://miro.medium.com/v2/resize:fit:1200/0*TCyvvQGagLXB1ISV.gif" alt="Timeline of AI Evolution" style="max-width: 100%;">
-        <figcaption>Figure 1: Timeline of AI Evolution</figcaption>
-    </figure>
-                </li>
-                <li>Advantages over GANs: Higher quality, more diverse outputs, better control</li>
-            </ul>
-            <div class="case-study">
-                <h4>Live Demo: Stable Diffusion in Action</h4>
-                <p>We'll perform a live demonstration of Stable Diffusion, generating images from various text prompts. We'll discuss how changing prompts affects the output and explore techniques like negative prompts and guidance scale.</p>
-            </div>
-        </div>
-
-        <div class="subsection">
-            <h3>1.5 Comparison of Generative Models</h3>
-            <p>We'll compare GANs, Diffusion Models, and other generative approaches:</p>
-            <ul>
-                <li>Variational Autoencoders (VAEs)</li>
-                <li>Autoregressive models (e.g., PixelCNN)</li>
-                <li>Flow-based models</li>
-            </ul>
-            <p>We'll discuss the strengths and weaknesses of each approach, and why diffusion models have become so popular recently.</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="icon"><i class="fas fa-network-wired"></i></div>
-        <h2>2. Current AI Ecosystem</h2>
-        <div class="time">15 minutes (14:50 - 15:05)</div>
-        <p>We'll provide an overview of the current AI landscape, including key players, technologies, and trends.</p>
+    <div class="slide">
+        <h2><i class="fas fa-info-circle icon"></i>1. შესავალი</h2>
+        <p class="time"><i class="far fa-clock"></i> 5 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://streetfins.com/wp-content/uploads/2023/03/Artificial_Intelligence__AI__Machine_Learning_-_30212411048.jpg'), url('https://images.pexels.com/photos/17483910/pexels-photo-17483910/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-concept-of-artificial-general-intelligence-agi-it-was-created-by-artist-domhnall-malone-as-part-of-th.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'), url('https://images.pexels.com/photos/17484899/pexels-photo-17484899/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-boundaries-set-in-place-to-secure-safe-accountable-biotechnology-it-was-created-by-khyati-trehan-as-pa.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
         <ul>
-            <li>Major tech companies and their AI initiatives</li>
-            <li>Open-source communities and their contributions</li>
-            <li>AI startups and innovation hubs</li>
+            <li>მისალმება და სესიის მოკლე მიმოხილვა</li>
+            <li>თქვენი გამოცდილება და ექსპერტიზა</li>
+            <li>AI-ის მნიშვნელობა გრაფიკულ დიზაინში</li>
         </ul>
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-code-branch"></i></div>
-        <h2>3. Impact of Open Source</h2>
-        <div class="time">15 minutes (15:05 - 15:20)</div>
-        <p>We'll explore how open source has democratized generative AI, improving accessibility and affordability.</p>
+    <div class="slide">
+        <h2><i class="fas fa-brain icon"></i>2. Generative AI: ზოგადი მიმოხილვა</h2>
+        <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/18069695/pexels-photo-18069695/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-illustration-depicts-language-models-which-generate-text-it-was-created-by-wes-cockx-as-part-of-the-visualising-ai-project-l.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>The role of open-source in AI research and development</li>
-            <li>Popular open-source AI frameworks and libraries</li>
-            <li>Challenges and benefits of open-source AI</li>
+            <li>განსაზღვრება და ძირითადი კონცეფციები</li>
+            <li>მოკლე ისტორია და უახლესი მიღწევები</li>
+            <li>Generative AI-ის ტიპები (GANs, VAEs, Transformers)</li>
+            <li>გამოყენება გრაფიკულ დიზაინში</li>
         </ul>
-        <div class="case-study">
-            <h3>Example: Hugging Face</h3>
-            <p>We'll discuss how Hugging Face's model hub has accelerated AI research and deployment, making state-of-the-art models accessible to developers worldwide. https://huggingface.co/spaces </p>
-        </div>
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-tools"></i></div>
-        <h2>4. Everyday AI Tools</h2>
-        <div class="time">15 minutes (15:20 - 15:35)</div>
-        <p>We'll examine popular AI tools like Stable Diffusion and Flux, demonstrating their capabilities and use cases.</p>
+    <div class="slide">
+        <h2><i class="fas fa-code-branch icon"></i>3. Open Source AI გრაფიკულ დიზაინში</h2>
+        <p class="time"><i class="far fa-clock"></i> 10 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/8386365/pexels-photo-8386365.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>Text-to-image generation tools</li>
-            <li>Language models and chatbots</li>
-            <li>Audio and video generation tools</li>
+            <li>Open source-ის მნიშვნელობა AI-ის განვითარებაში</li>
+            <li>პოპულარული open source AI ინსტრუმენტები დიზაინერებისთვის</li>
+            <li>კომუნალური წვლილი და სწრაფი განვითარება</li>
         </ul>
-        <div class="case-study">
-            <h3>Live Demo: Stable Diffusion</h3>
-            <p>We'll perform a live demonstration of Stable Diffusion, generating images from text prompts and exploring various settings and techniques.</p>
-        </div>
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-lightbulb"></i></div>
-        <h2>5. AI as a Revolutionary Brainstorming Tool</h2>
-        <div class="time">10 minutes (15:35 - 15:45)</div>
-        <p>We'll explore how AI can be used to enhance creativity and problem-solving in various fields.</p>
+    <div class="slide">
+        <h2><i class="fas fa-magic icon"></i>4. Stable Diffusion: მნიშვნელოვანი ცვლილება</h2>
+        <p class="time"><i class="far fa-clock"></i> 20 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17484901/pexels-photo-17484901/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-boundaries-set-in-place-to-secure-safe-accountable-biotechnology-it-was-created-by-artist-khyati-treha.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>AI-assisted ideation and concept generation</li>
-            <li>Collaborative creativity with AI</li>
-            <li>Overcoming creative blocks with AI tools</li>
+            <li>Stable Diffusion-ის შესავალი</li>
+            <li>როგორ მუშაობს (დიალოგის პროცესის ძირითადი ახსნა)</li>
+            <li>შედარება სხვა AI სურათების გენერირების ინსტრუმენტებთან</li>
+            <li>ზეგავლენა გრაფიკული დიზაინის ინდუსტრიაზე</li>
         </ul>
-
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-newspaper"></i></div>
-        <h2>6. Staying Informed About AI Advancements</h2>
-        <div class="time">10 minutes (15:45 - 15:55)</div>
-        <p>We'll address FOMO (Fear of Missing Out) by discussing strategies to keep up with rapid AI developments.</p>
+    <div class="slide">
+        <h2><i class="fas fa-tools icon"></i>5. Stable Diffusion ინსტრუმენტები და ტექნიკები</h2>
+        <p class="time"><i class="far fa-clock"></i> 30 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17485846/pexels-photo-17485846/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-ways-in-which-ai-can-help-compress-videos-and-increase-efficiency-for-users-it-was-created-by-vincent-s.png?auto=compress&cs=tinysrgb&w=800');"></div>
+        <h3><i class="fas fa-sliders-h"></i> ControlNet</h3>
         <ul>
-            <li>Reliable AI news sources and blogs</li>
-            <li>AI conferences and workshops</li>
-            <li>Online communities and forums</li>
+            <li>გენერირებული სურათების კონტროლის გაძლიერება</li>
+            <li>კიდეების გამოვლენის, პოზის შეფასების დემონსტრაცია და სხვ.</li>
         </ul>
-        <div class="case-study">
-            <h3>Resource List</h3>
-            <p>We'll provide a curated list of reliable AI news sources, blogs, and podcasts to help attendees stay updated on the latest developments.</p>
-        </div>
+        <a href="https://github.com/lllyasviel/ControlNet" target="_blank" class="btn">Click here to explore ControlNet</a>
+
+        <h3><i class="fas fa-paint-brush"></i> Inpainting</h3>
+        <ul>
+            <li>უწყვეტი რედაქტირება და ობიექტების ამოღება</li>
+            <li>Inpainting ტექნიკის ცოცხალი დემონსტრაცია</li>
+        </ul>
+        <a href="https://huggingface.co/spaces/fffiloni/stable-diffusion-inpainting" target="_blank" class="btn">Try Inpainting Demo</a>
+
+        <h3><i class="fas fa-expand"></i> Upscaling</h3>
+        <ul>
+            <li>სურათის გარჩევადობის გაუმჯობესება</li>
+            <li>AI upscaling-ის შედარება ტრადიციულ მეთოდებთან</li>
+        </ul>
+        <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="btn">Explore AI Upscaling</a>
+
+        <h3><i class="fas fa-exchange-alt"></i> Img2Img</h3>
+        <ul>
+            <li>არსებული სურათების ტრანსფორმაცია</li>
+        </ul>
+        <a href="https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variation" target="_blank" class="btn">Try Img2Img Transformation</a>
+
+        <h3><i class="fas fa-font"></i> Text-to-Image</h3>
+        <ul>
+            <li>სურათების შექმნა ტექსტური აღწერებიდან</li>
+        </ul>
+        <a href="https://huggingface.co/spaces/stabilityai/stable-diffusion" target="_blank" class="btn">Generate Images from Text</a>
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-question-circle"></i></div>
-        <h2>7. Acknowledging AI Skepticism</h2>
-        <div class="time">10 minutes (15:55 - 16:05)</div>
-        <p>We'll address common concerns and criticisms about AI, discussing both its potential and limitations.</p>
+    <div class="slide">
+        <h2><i class="fas fa-laptop-code icon"></i>6. გრაფიკულ დიზაინში პრაქტიკული გამოყენება</h2>
+        <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/18069248/pexels-photo-18069248/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-how-ai-tools-can-democratise-education-and-make-learning-more-efficient-it-was-created-by-martina-stiftinger-a.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
         <ul>
-            <li>Ethical concerns in AI development and deployment</li>
-            <li>AI bias and fairness issues</li>
-            <li>The impact of AI on employment and society</li>
+            <li>კონცეფციის ხელოვნება და იდეაცია</li>
+            <li>მარკეტინგული მასალებისთვის აქტივების შექმნა</li>
+            <li>ფოტოების რედაქტირება და გაუმჯობესება</li>
+            <li>ლოგოს დიზაინი და ბრენდის იდენტობა</li>
         </ul>
-        <div class="case-study">
-            <h3>Case Study: AI Ethics in Facial Recognition</h3>
-            <p>We'll examine the controversy surrounding facial recognition technology and its implications for privacy and civil liberties.</p>
-        </div>
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-rocket"></i></div>
-        <h2>8. Future Prospects and Potential Developments</h2>
-        <div class="time">10 minutes (16:05 - 16:15)</div>
-        <p>We'll speculate on the future of AI, discussing potential breakthroughs and their implications for society.</p>
+    <div class="slide">
+        <h2><i class="fas fa-keyboard icon"></i>7. Large Language Models for Generative AI</h2>
+        <p class="time"><i class="far fa-clock"></i> 10 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/18069231/pexels-photo-18069231/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-how-ai-tools-can-democratise-education-and-make-learning-more-efficient-it-was-created-by-martina-stiftinger-a.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>Emerging trends in AI research</li>
-            <li>Potential applications of advanced AI systems</li>
-            <li>Challenges and opportunities in AI development</li>
+            <li>Introduction to large language models (LLMs)</li>
+            <li>How LLMs can be used to create prompts for generative AI</li>
+            <li>Examples of prompt engineering and prompt refinement</li>
+            <li>Best practices for writing effective prompts</li>
         </ul>
-        
     </div>
 
-    <div class="section">
-        <div class="icon"><i class="fas fa-comments"></i></div>
-        <h2>Q&A and Discussion</h2>
-        <div class="time">15 minutes (16:15 - 16:30)</div>
-        <p>Open forum for questions, sharing experiences, and discussing the future of AI and generative models.</p>
+    <div class="slide">
+        <h2><i class="fas fa-chart-line icon"></i>8. მომავალი ტენდენციები და პროგნოზები</h2>
+        <p class="time"><i class="far fa-clock"></i> 10 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17485741/pexels-photo-17485741/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-visualises-the-benefits-and-flaws-of-large-language-models-it-was-created-by-tim-west-as-part-of-the-visualising-ai-pr.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+        <ul>
+            <li>მომავალი მიღწევები AI-ში გრაფიკული დიზაინისთვის</li>
+            <li>შესაძლო გავლენა შრომის ბაზარზე და უნარების მოთხოვნები</li>
+            <li>ინტეგრაცია სხვა დიზაინის ინსტრუმენტებთან და სამუშაო პროცესებთან</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2><i class="fas fa-link icon"></i>9. AI ინსტრუმენტები და რესურსები</h2>
+        <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://techcrunch.com/wp-content/uploads/2022/08/53118410-9cce-468a-8bf6-1b8ce4dd1390_1600x925.webp');"></div>
+        <h3>Hugging Face Spaces</h3>
+        <ul>
+            <li><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion" target="_blank">Stable Diffusion</a></li>
+            <li><a href="https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variation" target="_blank">Stable Diffusion Image Variation</a></li>
+            <li><a href="https://huggingface.co/spaces/fffiloni/stable-diffusion-inpainting" target="_blank">Stable Diffusion Inpainting</a></li>
+            <li><a href="https://huggingface.co/spaces/multimodalart/stable-diffusion-inpainting" target="_blank">Another Stable Diffusion Inpainting</a></li>
+        </ul>
+        <a href="https://huggingface.co/spaces" target="_blank" class="btn">Explore More Hugging Face Spaces</a>
+
+        <h3>სხვა AI ინსტრუმენტები</h3>
+        <ul>
+            <li><a href="https://leonardo.ai/" target="_blank">LeonardoAI</a> - AI-powered creative suite</li>
+            <li><a href="https://poe.com/" target="_blank">POE</a> - AI writing assistant</li>
+            <li><a href="https://openai.com/chatgpt" target="_blank">ChatGPT</a> - Advanced language model</li>
+            <li><a href="https://www.adobe.com/sensei/generative-ai/firefly.html" target="_blank">Adobe Firefly</a> - AI-powered creative tools</li>
+            <li><a href="https://www.midjourney.com/" target="_blank">Midjourney</a> - AI image generation</li>
+            <li><a href="https://runwayml.com/" target="_blank">RunwayML</a> - AI-powered video editing</li>
+            <li><a href="https://www.canva.com/" target="_blank">Canva</a> - Graphic design platform with AI features</li>
+        </ul>
+        <a href="https://aiartists.org/ai-generated-art-tools" target="_blank" class="btn">Discover More AI Tools</a>
+    </div>
+
+    <div class="slide">
+        <h2><i class="fas fa-question-circle icon"></i>10. კითხვები და პასუხები</h2>
+        <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*yjvTQ1zwgPU-PkKy4Yf0Pg.png');"></div>
+        <ul>
+            <li>აუდიტორიის კითხვებზე პასუხის გაცემა</li>
+            <li>დისკუსიის წახალისება და გამოცდილების გაზიარება</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2><i class="fas fa-flag-checkered icon"></i>11. დასკვნა</h2>
+        <p class="time"><i class="far fa-clock"></i> 5 minutes</p>
+        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17483910/pexels-photo-17483910/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-concept-of-artificial-general-intelligence-agi-it-was-created-by-artist-domhnall-malone-as-part-of-th.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+        <ul>
+            <li>ძირითადი პუნქტების შეჯამება</li>
+            <li>რესურსები შემდგომი სწავლისთვის</li>
+            <li>AI ინსტრუმენტების ექსპერიმენტირების წახალისება</li>
+        </ul>
     </div>
 </body>
 </html>
