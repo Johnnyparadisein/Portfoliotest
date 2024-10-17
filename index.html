@@ -138,6 +138,33 @@
             color: #ffffff;
             text-decoration: none;
         }
+        .linkedin-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0077B5;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .linkedin-link:hover {
+            background-color: #005582;
+        }
+        .image-comparison {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-comparison > div {
+            width: 48%;
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
         @media (max-width: 600px) {
             body {
                 padding: 15px;
@@ -158,15 +185,17 @@
 </head>
 <body>
     <h1><i class="fas fa-robot icon"></i> AI გრაფიკულ დიზაინში ტრენინგი - Powered by John</h1>
+    
+    <a href="#" class="linkedin-link" target="_blank"><i class="fab fa-linkedin"></i> Connect with John on LinkedIn</a>
 
     <div class="slide">
         <h2><i class="fas fa-info-circle icon"></i>1. შესავალი</h2>
         <p class="time"><i class="far fa-clock"></i> 5 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://streetfins.com/wp-content/uploads/2023/03/Artificial_Intelligence__AI__Machine_Learning_-_30212411048.jpg'), url('https://images.pexels.com/photos/17483910/pexels-photo-17483910/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-concept-of-artificial-general-intelligence-agi-it-was-created-by-artist-domhnall-malone-as-part-of-th.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'), url('https://images.pexels.com/photos/17484899/pexels-photo-17484899/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-boundaries-set-in-place-to-secure-safe-accountable-biotechnology-it-was-created-by-khyati-trehan-as-pa.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
         <ul>
-            <li>მისალმება და სესიის მოკლე მიმოხილვა</li>
-            <li>თქვენი გამოცდილება და ექსპერტიზა</li>
-            <li>AI-ის მნიშვნელობა გრაფიკულ დიზაინში</li>
+            <li>მისალმება და სესიის მოკლე მიმოხილვა: გაეცნობით AI-ის როლს თანამედროვე გრაფიკულ დიზაინში</li>
+            <li>თქვენი გამოცდილება და ექსპერტიზა: მოკლე ინფორმაცია ჩემი პროფესიული გზის შესახებ AI და დიზაინის სფეროში</li>
+            <li>AI-ის მნიშვნელობა გრაფიკულ დიზაინში: როგორ ცვლის AI დიზაინერების მუშაობის პროცესს და შედეგებს</li>
         </ul>
     </div>
 
@@ -175,11 +204,23 @@
         <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/18069695/pexels-photo-18069695/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-illustration-depicts-language-models-which-generate-text-it-was-created-by-wes-cockx-as-part-of-the-visualising-ai-project-l.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>განსაზღვრება და ძირითადი კონცეფციები</li>
-            <li>მოკლე ისტორია და უახლესი მიღწევები</li>
-            <li>Generative AI-ის ტიპები (GANs, VAEs, Transformers)</li>
-            <li>გამოყენება გრაფიკულ დიზაინში</li>
+            <li>განსაზღვრება და ძირითადი კონცეფციები: რა არის Generative AI და როგორ მუშაობს</li>
+            <li>მოკლე ისტორია და უახლესი მიღწევები: Generative AI-ის განვითარების ეტაპები და მნიშვნელოვანი ინოვაციები</li>
+            <li>Generative AI-ის ტიპები (GANs, VAEs, Transformers): თითოეული ტიპის მოკლე აღწერა და გამოყენების სფეროები</li>
+            <li>Stable Diffusion-ის შედარება GAN მოდელებთან:
+                <ul>
+                    <li>GAN-ები: ორი ქსელის (გენერატორი და დისკრიმინატორი) კონკურენტული სწავლება, ხშირად გამოიყენება რეალისტური სურათების შესაქმნელად</li>
+                    <li>Stable Diffusion: იყენებს დიფუზიის პროცესს, რომელიც თანდათანობით აუმჯობესებს ხმაურიან სურათებს, უფრო მრავალმხრივია და შეუძლია მრავალი ამოცანის შესრულება</li>
+                    <li>კონტროლი: Stable Diffusion-ს აქვს უკეთესი კონტროლი გენერირებულ შედეგებზე, განსაკუთრებით ControlNet-ის გამოყენებით</li>
+                    <li>ეფექტურობა: Stable Diffusion ხშირად უფრო სწრაფია და ნაკლებ რესურსებს მოითხოვს, ვიდრე GAN-ები</li>
+                </ul>
+            </li>
+            <li>გამოყენება გრაფიკულ დიზაინში: კონკრეტული მაგალითები, თუ როგორ იყენებენ დიზაინერები Generative AI-ს</li>
         </ul>
+        <div class="image-comparison">
+            <div>GAN Model Example</div>
+            <div>Diffusion Model Example</div>
+        </div>
     </div>
 
     <div class="slide">
@@ -187,9 +228,9 @@
         <p class="time"><i class="far fa-clock"></i> 10 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/8386365/pexels-photo-8386365.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>Open source-ის მნიშვნელობა AI-ის განვითარებაში</li>
-            <li>პოპულარული open source AI ინსტრუმენტები დიზაინერებისთვის</li>
-            <li>კომუნალური წვლილი და სწრაფი განვითარება</li>
+            <li>Open source-ის მნიშვნელობა AI-ის განვითარებაში: როგორ აჩქარებს ღია კოდი ინოვაციებს</li>
+            <li>პოპულარული open source AI ინსტრუმენტები დიზაინერებისთვის: დეტალური მიმოხილვა და გამოყენების მაგალითები</li>
+            <li>კომუნალური წვლილი და სწრაფი განვითარება: როგორ შეუძლიათ დიზაინერებს მონაწილეობა მიიღონ AI-ის განვითარებაში</li>
         </ul>
     </div>
 
@@ -198,10 +239,10 @@
         <p class="time"><i class="far fa-clock"></i> 20 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17484901/pexels-photo-17484901/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-boundaries-set-in-place-to-secure-safe-accountable-biotechnology-it-was-created-by-artist-khyati-treha.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>Stable Diffusion-ის შესავალი</li>
-            <li>როგორ მუშაობს (დიალოგის პროცესის ძირითადი ახსნა)</li>
-            <li>შედარება სხვა AI სურათების გენერირების ინსტრუმენტებთან</li>
-            <li>ზეგავლენა გრაფიკული დიზაინის ინდუსტრიაზე</li>
+            <li>Stable Diffusion-ის შესავალი: რა არის Stable Diffusion და როგორ მუშაობს</li>
+            <li>როგორ მუშაობს (დიფუზიის პროცესის ძირითადი ახსნა): დეტალური განმარტება Stable Diffusion-ის ალგორითმის შესახებ</li>
+            <li>შედარება სხვა AI სურათების გენერირების ინსტრუმენტებთან: Stable Diffusion-ის უპირატესობები და ნაკლოვანებები</li>
+            <li>ზეგავლენა გრაფიკული დიზაინის ინდუსტრიაზე: როგორ ცვლის Stable Diffusion დიზაინერების სამუშაო პროცესს</li>
         </ul>
     </div>
 
@@ -211,34 +252,34 @@
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17485846/pexels-photo-17485846/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-ways-in-which-ai-can-help-compress-videos-and-increase-efficiency-for-users-it-was-created-by-vincent-s.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <h3><i class="fas fa-sliders-h"></i> ControlNet</h3>
         <ul>
-            <li>გენერირებული სურათების კონტროლის გაძლიერება</li>
-            <li>კიდეების გამოვლენის, პოზის შეფასების დემონსტრაცია და სხვ.</li>
+            <li>გენერირებული სურათების კონტროლის გაძლიერება: როგორ მუშაობს ControlNet და რა უპირატესობები აქვს</li>
+            <li>კიდეების გამოვლენის, პოზის შეფასების დემონსტრაცია და სხვ.: პრაქტიკული მაგალითები ControlNet-ის გამოყენებისა</li>
         </ul>
         <a href="https://github.com/lllyasviel/ControlNet" target="_blank" class="btn">Click here to explore ControlNet</a>
 
         <h3><i class="fas fa-paint-brush"></i> Inpainting</h3>
         <ul>
-            <li>უწყვეტი რედაქტირება და ობიექტების ამოღება</li>
-            <li>Inpainting ტექნიკის ცოცხალი დემონსტრაცია</li>
+            <li>უწყვეტი რედაქტირება და ობიექტების ამოღება: Inpainting-ის ტექნიკის დეტალური აღწერა</li>
+            <li>Inpainting ტექნიკის ცოცხალი დემონსტრაცია: პრაქტიკული მაგალითები და გამოყენების სცენარები</li>
         </ul>
         <a href="https://huggingface.co/spaces/fffiloni/stable-diffusion-inpainting" target="_blank" class="btn">Try Inpainting Demo</a>
 
         <h3><i class="fas fa-expand"></i> Upscaling</h3>
         <ul>
-            <li>სურათის გარჩევადობის გაუმჯობესება</li>
-            <li>AI upscaling-ის შედარება ტრადიციულ მეთოდებთან</li>
+            <li>სურათის გარჩევადობის გაუმჯობესება: Upscaling-ის ტექნიკების მიმოხილვა</li>
+            <li>AI upscaling-ის შედარება ტრადიციულ მეთოდებთან: უპირატესობები და გამოწვევები</li>
         </ul>
         <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="btn">Explore AI Upscaling</a>
 
         <h3><i class="fas fa-exchange-alt"></i> Img2Img</h3>
         <ul>
-            <li>არსებული სურათების ტრანსფორმაცია</li>
+            <li>არსებული სურათების ტრანსფორმაცია: Img2Img ტექნიკის დეტალური აღწერა და გამოყენების სცენარები</li>
         </ul>
         <a href="https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variation" target="_blank" class="btn">Try Img2Img Transformation</a>
 
         <h3><i class="fas fa-font"></i> Text-to-Image</h3>
         <ul>
-            <li>სურათების შექმნა ტექსტური აღწერებიდან</li>
+            <li>სურათების შექმნა ტექსტური აღწერებიდან: Text-to-Image ტექნოლოგიის მუშაობის პრინციპი და გამოყენების მაგალითები</li>
         </ul>
         <a href="https://huggingface.co/spaces/stabilityai/stable-diffusion" target="_blank" class="btn">Generate Images from Text</a>
     </div>
@@ -248,10 +289,10 @@
         <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/18069248/pexels-photo-18069248/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-how-ai-tools-can-democratise-education-and-make-learning-more-efficient-it-was-created-by-martina-stiftinger-a.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
         <ul>
-            <li>კონცეფციის ხელოვნება და იდეაცია</li>
-            <li>მარკეტინგული მასალებისთვის აქტივების შექმნა</li>
-            <li>ფოტოების რედაქტირება და გაუმჯობესება</li>
-            <li>ლოგოს დიზაინი და ბრენდის იდენტობა</li>
+            <li>კონცეფციის ხელოვნება და იდეაცია: როგორ გამოიყენოთ AI იდეების გენერირებისთვის</li>
+            <li>მარკეტინგული მასალებისთვის აქტივების შექმნა: AI-ის გამოყენება რეკლამებისა და სოციალური მედიის კონტენტისთვის</li>
+            <li>ფოტოების რედაქტირება და გაუმჯობესება: AI-ის გამოყენება ფოტოების დასამუშავებლად</li>
+            <li>ლოგოს დიზაინი და ბრენდის იდენტობა: AI-ის როლი ბრენდინგში</li>
         </ul>
     </div>
 
@@ -260,10 +301,10 @@
         <p class="time"><i class="far fa-clock"></i> 10 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/18069231/pexels-photo-18069231/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-how-ai-tools-can-democratise-education-and-make-learning-more-efficient-it-was-created-by-martina-stiftinger-a.png?auto=compress&cs=tinysrgb&w=800');"></div>
         <ul>
-            <li>Introduction to large language models (LLMs)</li>
-            <li>How LLMs can be used to create prompts for generative AI</li>
-            <li>Examples of prompt engineering and prompt refinement</li>
-            <li>Best practices for writing effective prompts</li>
+            <li>Introduction to large language models (LLMs): რა არის LLM და როგორ მუშაობს</li>
+            <li>How LLMs can be used to create prompts for generative AI: LLM-ების გამოყენება Stable Diffusion-ისთვის პრომპტების შესაქმნელად</li>
+            <li>Examples of prompt engineering and prompt refinement: პრაქტიკული მაგალითები ეფექტური პრომპტების შესაქმნელად</li>
+            <li>Best practices for writing effective prompts: რჩევები უკეთესი შედეგების მისაღებად</li>
         </ul>
     </div>
 
@@ -272,9 +313,9 @@
         <p class="time"><i class="far fa-clock"></i> 10 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17485741/pexels-photo-17485741/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-visualises-the-benefits-and-flaws-of-large-language-models-it-was-created-by-tim-west-as-part-of-the-visualising-ai-pr.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
         <ul>
-            <li>მომავალი მიღწევები AI-ში გრაფიკული დიზაინისთვის</li>
-            <li>შესაძლო გავლენა შრომის ბაზარზე და უნარების მოთხოვნები</li>
-            <li>ინტეგრაცია სხვა დიზაინის ინსტრუმენტებთან და სამუშაო პროცესებთან</li>
+            <li>მომავალი მიღწევები AI-ში გრაფიკული დიზაინისთვის: მოსალოდნელი ინოვაციები და მათი გავლენა</li>
+            <li>შესაძლო გავლენა შრომის ბაზარზე და უნარების მოთხოვნები: როგორ შეიცვლება დიზაინერის პროფესია</li>
+            <li>ინტეგრაცია სხვა დიზაინის ინსტრუმენტებთან და სამუშაო პროცესებთან: AI-ის როლი მომავლის დიზაინის ეკოსისტემაში</li>
         </ul>
     </div>
 
@@ -284,22 +325,22 @@
         <div class="image-placeholder" style="background-image: url('https://techcrunch.com/wp-content/uploads/2022/08/53118410-9cce-468a-8bf6-1b8ce4dd1390_1600x925.webp');"></div>
         <h3>Hugging Face Spaces</h3>
         <ul>
-            <li><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion" target="_blank">Stable Diffusion</a></li>
-            <li><a href="https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variation" target="_blank">Stable Diffusion Image Variation</a></li>
-            <li><a href="https://huggingface.co/spaces/fffiloni/stable-diffusion-inpainting" target="_blank">Stable Diffusion Inpainting</a></li>
-            <li><a href="https://huggingface.co/spaces/multimodalart/stable-diffusion-inpainting" target="_blank">Another Stable Diffusion Inpainting</a></li>
+            <li><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion" target="_blank">Stable Diffusion</a>: ძირითადი Stable Diffusion მოდელი</li>
+            <li><a href="https://huggingface.co/spaces/lambdalabs/stable-diffusion-image-variation" target="_blank">Stable Diffusion Image Variation</a>: სურათების ვარიაციების შექმნა</li>
+            <li><a href="https://huggingface.co/spaces/fffiloni/stable-diffusion-inpainting" target="_blank">Stable Diffusion Inpainting</a>: სურათების რედაქტირება Inpainting-ით</li>
+            <li><a href="https://huggingface.co/spaces/multimodalart/stable-diffusion-inpainting" target="_blank">Another Stable Diffusion Inpainting</a>: ალტერნატიული Inpainting ინსტრუმენტი</li>
         </ul>
         <a href="https://huggingface.co/spaces" target="_blank" class="btn">Explore More Hugging Face Spaces</a>
 
         <h3>სხვა AI ინსტრუმენტები</h3>
         <ul>
-            <li><a href="https://leonardo.ai/" target="_blank">LeonardoAI</a> - AI-powered creative suite</li>
-            <li><a href="https://poe.com/" target="_blank">POE</a> - AI writing assistant</li>
-            <li><a href="https://openai.com/chatgpt" target="_blank">ChatGPT</a> - Advanced language model</li>
-            <li><a href="https://www.adobe.com/sensei/generative-ai/firefly.html" target="_blank">Adobe Firefly</a> - AI-powered creative tools</li>
-            <li><a href="https://www.midjourney.com/" target="_blank">Midjourney</a> - AI image generation</li>
-            <li><a href="https://runwayml.com/" target="_blank">RunwayML</a> - AI-powered video editing</li>
-            <li><a href="https://www.canva.com/" target="_blank">Canva</a> - Graphic design platform with AI features</li>
+            <li><a href="https://leonardo.ai/" target="_blank">LeonardoAI</a> - AI-powered creative suite: მრავალფუნქციური AI ინსტრუმენტი დიზაინერებისთვის</li>
+            <li><a href="https://poe.com/" target="_blank">POE</a> - AI writing assistant: AI-ზე დაფუძნებული წერის ასისტენტი</li>
+            <li><a href="https://openai.com/chatgpt" target="_blank">ChatGPT</a> - Advanced language model: მრავალმხრივი ენობრივი მოდელი</li>
+            <li><a href="https://www.adobe.com/sensei/generative-ai/firefly.html" target="_blank">Adobe Firefly</a> - AI-powered creative tools: Adobe-ს AI ინსტრუმენტები</li>
+            <li><a href="https://www.midjourney.com/" target="_blank">Midjourney</a> - AI image generation: AI-ზე დაფუძნებული სურათების გენერაცია</li>
+            <li><a href="https://runwayml.com/" target="_blank">RunwayML</a> - AI-powered video editing: AI-ზე დაფუძნებული ვიდეო რედაქტირება</li>
+            <li><a href="https://www.canva.com/" target="_blank">Canva</a> - Graphic design platform with AI features: გრაფიკული დიზაინის პლატფორმა AI ფუნქციებით</li>
         </ul>
         <a href="https://aiartists.org/ai-generated-art-tools" target="_blank" class="btn">Discover More AI Tools</a>
     </div>
@@ -309,19 +350,8 @@
         <p class="time"><i class="far fa-clock"></i> 15 minutes</p>
         <div class="image-placeholder" style="background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*yjvTQ1zwgPU-PkKy4Yf0Pg.png');"></div>
         <ul>
-            <li>აუდიტორიის კითხვებზე პასუხის გაცემა</li>
-            <li>დისკუსიის წახალისება და გამოცდილების გაზიარება</li>
-        </ul>
-    </div>
-
-    <div class="slide">
-        <h2><i class="fas fa-flag-checkered icon"></i>11. დასკვნა</h2>
-        <p class="time"><i class="far fa-clock"></i> 5 minutes</p>
-        <div class="image-placeholder" style="background-image: url('https://images.pexels.com/photos/17483910/pexels-photo-17483910/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-the-concept-of-artificial-general-intelligence-agi-it-was-created-by-artist-domhnall-malone-as-part-of-th.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
-        <ul>
-            <li>ძირითადი პუნქტების შეჯამება</li>
-            <li>რესურსები შემდგომი სწავლისთვის</li>
-            <li>AI ინსტრუმენტების ექსპერიმენტირების წახალისება</li>
+            <li>აუდიტორიის კითხვებზე პასუხის გაცემა: ინტერაქტიული სესია მონაწილეების კითხვებზე პასუხის გასაცემად</li>
+            <li>დისკუსიის წახალისება და გამოცდილების გაზიარება: მონაწილეების წახალისება, გაუზიარონ ერთმანეთს საკუთარი გამოცდილება AI-ის გამოყენებაში</li>
         </ul>
     </div>
 </body>
