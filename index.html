@@ -1,369 +1,1222 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUMP Brand Strategy Presentation</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-            background: #0f172a;
-            color: #fff;
+        :root {
+            --pump-red: #E23434;
+            --healthcare-blue: #3159FF;
+            --dark-bg: #121212;
+            --dark-surface: #1E1E1E;
+            --dark-surface-lighter: #2D2D2D;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --accent-light: #F5F5F5;
+            --transition-speed: 0.5s;
+            --border-radius: 8px;
         }
-        .slide {
-            display: none;
-            height: 100vh;
-            padding: 3rem;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
             position: relative;
             overflow: hidden;
+            background-color: var(--dark-bg);
         }
-        .slide::after {
-            content: '';
+
+        .slide {
             position: absolute;
             top: 0;
-            right: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 60%);
-            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform var(--transition-speed), opacity var(--transition-speed);
+            overflow-y: auto;
+            background-color: var(--dark-bg);
         }
+
         .slide.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 10;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--pump-red);
         }
-        h1 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
+
+        .logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-svg {
+            height: 100%;
+            width: auto;
+            fill: var(--text-primary);
+        }
+
+        .logo-svg .cls-1 {
+            fill: var(--text-primary);
+        }
+
+        .logo-healthcare {
+            height: 25px;
+            margin-left: 10px;
+        }
+
+        .logo-healthcare .cls-1 {
+            fill: var(--healthcare-blue);
+        }
+
+        .slide-number {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: bold;
+            background-color: var(--dark-surface-lighter);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .slide-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
             text-align: center;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #fff, #e2e8f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
+
+        .slide-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pump-red), var(--healthcare-blue));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .slide-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .slide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .slide-content::-webkit-scrollbar-thumb {
+            background-color: var(--pump-red);
+            border-radius: 4px;
+        }
+
+        .slide-content::-webkit-scrollbar-track {
+            background-color: var(--dark-surface-lighter);
+            border-radius: 4px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            margin-top: 1rem;
+        }
+
+        .nav-btn {
+            background-color: var(--dark-surface-lighter);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn.prev-btn:hover {
+            background-color: var(--healthcare-blue);
+            transform: translateX(-3px);
+        }
+
+        .nav-btn.next-btn:hover {
+            background-color: var(--pump-red);
+            transform: translateX(3px);
+        }
+
+        .nav-btn:disabled {
+            background-color: var(--dark-surface);
+            color: var(--text-secondary);
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         h2 {
+            color: var(--pump-red);
+            margin: 1.8rem 0 1rem 0;
             font-size: 1.8rem;
-            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--healthcare-blue);
+            margin: 1.2rem 0 0.7rem 0;
+            font-size: 1.3rem;
+        }
+
+        p, li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .color-swatch {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            justify-content: center;
+        }
+
+        .swatch {
+            width: 140px;
+            height: 90px;
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .swatch:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .swatch-label {
+            background-color: rgba(30,30,30,0.8);
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .content-pillar {
+            background-color: var(--dark-surface);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .content-pillar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .content-pillar:nth-child(odd) {
+            border-left-color: var(--pump-red);
+        }
+
+        .content-pillar:nth-child(even) {
+            border-left-color: var(--healthcare-blue);
+        }
+
+        .content-pillar h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-pillar h3:before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: var(--pump-red);
+        }
+
+        .content-pillar:nth-child(even) h3:before {
+            background-color: var(--healthcare-blue);
+        }
+
+        .two-column {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .column {
+            flex: 1;
+            background-color: var(--dark-surface);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .column:nth-child(odd) {
+            border-top: 4px solid var(--pump-red);
+        }
+
+        .column:nth-child(even) {
+            border-top: 4px solid var(--healthcare-blue);
+        }
+
+        .cover-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            color: #e2e8f0;
+            background: radial-gradient(circle at center, #252525 0%, var(--dark-bg) 70%);
+        }
+
+        .cover-logo {
+            width: 60%;
+            max-width: 400px;
             margin-bottom: 2rem;
         }
-        ul {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin: 1.5rem 0;
-            padding-left: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto;
+
+        .cover-logo svg {
+            width: 100%;
+            height: auto;
         }
-        li {
-            margin-bottom: 1rem;
+
+        .cover-logo .cls-1 {
+            fill: var(--text-primary);
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.5rem 2rem;
+            background-color: var(--dark-surface);
+            color: var(--text-secondary);
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+            justify-content: space-between;
+            z-index: 20;
         }
-        li::before {
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            content: '\f138';
-            color: #a5b4fc;
-            margin-top: 5px;
+
+        .progress-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--dark-surface-lighter);
+            z-index: 25;
         }
-        .controls {
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--pump-red), var(--healthcare-blue));
+            transition: width 0.3s;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .slide-menu {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
+            top: 1rem;
+            right: 1rem;
             z-index: 100;
         }
-        button {
-            padding: 0.8rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 0.5rem;
+
+        .menu-btn {
+            background-color: var(--dark-surface-lighter);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 1rem;
-            color: white;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            font-weight: bold;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
         }
-        button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+
+        .menu-btn:hover {
+            background-color: var(--pump-red);
         }
-        .timing {
+
+        .slide-menu-list {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            backdrop-filter: blur(10px);
+            right: 0;
+            top: 100%;
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            width: 280px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .slide-menu-list.active {
+            max-height: 500px;
+            padding: 0.5rem;
+        }
+
+        .menu-item {
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: var(--border-radius);
+            margin-bottom: 0.2rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1.1rem;
         }
-        .timing i {
-            color: #a5b4fc;
+
+        .menu-item:hover {
+            background-color: var(--dark-surface-lighter);
         }
-        .slide-number {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            color: white;
-            font-size: 1.1rem;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            backdrop-filter: blur(10px);
+
+        .menu-item:before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: linear-gradient(45deg, var(--pump-red), var(--healthcare-blue));
         }
-        .icon-container {
+
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .icon-prev {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3C/svg%3E");
+        }
+
+        .icon-next {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+        }
+
+        .icon-menu {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E");
+            width: 20px;
+            height: 20px;
+        }
+
+        .highlight-box {
+            background-color: rgba(226, 52, 52, 0.1);
+            border-left: 4px solid var(--pump-red);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .highlight-box.blue {
+            background-color: rgba(49, 89, 255, 0.1);
+            border-left-color: var(--healthcare-blue);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--dark-surface-lighter);
+        }
+
+        .badge.red {
+            background-color: rgba(226, 52, 52, 0.2);
+            color: var(--pump-red);
+        }
+
+        .badge.blue {
+            background-color: rgba(49, 89, 255, 0.2);
+            color: var(--healthcare-blue);
+        }
+
+        .logos-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+            gap: 1.5rem;
+        }
+
+        .logo-container {
+            background-color: var(--dark-surface);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
         }
-        .icon-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            width: 120px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+
+        .logo-container.red-bg {
+            background-color: var(--pump-red);
         }
-        .icon-item:hover {
-            transform: translateY(-5px);
+
+        .logo-container.blue-bg {
+            background-color: var(--healthcare-blue);
         }
-        .icon-item i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #a5b4fc;
+
+        .logo-container svg {
+            width: 100%;
+            height: auto;
         }
-        .nested-list {
-            margin-left: 2rem;
-            font-size: 1.1rem;
-        }
-        .highlight {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 1rem;
+            }
+
+            .slide-title {
+                font-size: 1.8rem;
+            }
+
+            .two-column {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .color-swatch {
+                justify-content: center;
+            }
+
+            .cover-logo {
+                width: 80%;
+            }
+
+            .cover-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                height: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="slideshow">
-        <div class="slide active">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>120 წთ სრული</span>
+    <div class="presentation-container">
+        <div class="slide cover-slide active" id="slide-1">
+            <div class="cover-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 800.75 183.03"><defs><style> .cls-1 { fill: #fff; stroke-width: 0px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><g><path class="cls-1" d="M167.69,67.49c0,41.41-31.7,67.48-81.54,67.48h-25.82v43.97H0V0h86.15c49.84,0,81.54,26.07,81.54,67.49ZM106.85,67.49c0-13.04-7.92-20.96-24.54-20.96h-21.98v41.92h21.98c16.62,0,24.54-7.92,24.54-20.96Z"></path><path class="cls-1" d="M187.27,98.42v-30.93h60.33v29.14c0,27.35,10.48,37.58,27.35,37.58s27.35-10.23,27.35-37.58v-29.14h59.31v30.93c0,53.68-32.21,84.61-87.17,84.61s-87.17-30.93-87.17-84.61Z"></path><path class="cls-1" d="M548.97,178.94l-.51-81.54-38.85,65.44h-26.59l-38.85-62.63v78.73h-54.96V0h49.59l58.28,95.35L553.83,0h49.59l.51,178.94h-54.96Z"></path><path class="cls-1" d="M800.75,67.49c0,41.41-31.7,67.48-81.54,67.48h-25.82v43.97h-60.33V0h86.15c49.84,0,81.54,26.07,81.54,67.49ZM739.91,67.49c0-13.04-7.92-20.96-24.54-20.96h-21.98v41.92h21.98c16.62,0,24.54-7.92,24.54-20.96Z"></path></g><rect class="cls-1" x="187.27" width="174.34" height="49.16"></rect></g></g></svg>
             </div>
-            <h1>AI ვიზუალური ხელსაწყოების სემინარი</h1>
-            <h2>სამედიცინო მარკეტინგის გუნდებისთვის</h2>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fas fa-robot"></i>
-                    <div>AI Tools</div>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-hospital"></i>
-                    <div>Medical</div>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-bullhorn"></i>
-                    <div>Marketing</div>
-                </div>
+            <h1 class="slide-title">Brand Strategy</h1>
+            <p class="cover-subtitle">Premium Fitness & Health Supplements in Georgia</p>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn" disabled><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
             </div>
         </div>
 
-        <div class="slide">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>10 წთ</span>
+        <div class="slide" id="slide-2">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">2/10</div>
             </div>
-            <h1>შესავალი და პრომპტინგი</h1>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fas fa-wand-magic-sparkles"></i>
-                    <div>Prompting</div>
+            <h1 class="slide-title">Current Brand Overview</h1>
+            <div class="slide-content">
+                <p>PUMP is a Georgian supplement company with a physical location in Tbilisi (Vake, Dimitri Arakishvili #2). They offer a range of fitness and health supplements with diverse product categories.</p>
+                
+                <div class="highlight-box">
+                    <h3>Key Product Categories</h3>
+                    <div>
+                        <span class="badge red">Women's supplements</span>
+                        <span class="badge red">Protein products</span>
+                        <span class="badge blue">Creatine</span>
+                        <span class="badge red">Energy supplements</span>
+                        <span class="badge blue">Testosterone boosters</span>
+                        <span class="badge blue">Amino acids</span>
+                        <span class="badge red">Vitamins</span>
+                        <span class="badge blue">Training/nutrition programs</span>
+                        <span class="badge red">Product bundles</span>
+                    </div>
+                </div>
+
+                <h2>Current Digital Presence</h2>
+                <ul>
+                    <li>Website (pump.ge)</li>
+                    <li>YouTube channel</li>
+                    <li>Social media (Facebook, Twitter)</li>
+                    <li>Multilingual approach (Georgian with English options)</li>
+                </ul>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">3/10</div>
+            </div>
+            <h1 class="slide-title">Brand Essence & Positioning</h1>
+            <div class="slide-content">
+                <div class="highlight-box">
+                    <h3>Brand Essence</h3>
+                    <p>PUMP represents the intersection of fitness expertise and nutritional science for the Georgian market, providing premium supplements that support both athletic performance and everyday wellness goals.</p>
+                </div>
+                
+                <div class="highlight-box blue">
+                    <h3>Brand Positioning</h3>
+                    <p>"PUMP is Georgia's trusted authority for premium fitness supplements and nutritional guidance, offering expertly curated products that empower Georgians to achieve their health and performance goals."</p>
+                </div>
+                
+                <h2>Brand Voice</h2>
+                <div class="two-column">
+                    <div class="column">
+                        <h3>What We Are</h3>
+                        <ul>
+                            <li>Knowledgeable but accessible</li>
+                            <li>Motivational without being aggressive</li>
+                            <li>Scientific yet practical</li>
+                            <li>Authentically Georgian with international standards</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>What We're Not</h3>
+                        <ul>
+                            <li>Overly technical or confusing</li>
+                            <li>Aggressive or intimidating</li>
+                            <li>Just another supplement retailer</li>
+                            <li>Disconnected from Georgian culture</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <ul>
-                <li>ხელსაწყოები: Recraft და Poe</li>
-                <li>ეფექტური პრომპტინგის ტექნიკები:
-                    <ul class="nested-list">
-                        <li>სამედიცინო ტერმინოლოგია</li>
-                        <li>სტილის აღწერა</li>
-                        <li>სამიზნე აუდიტორია</li>
-                        <li>ფორმატის დეტალები</li>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">4/10</div>
+            </div>
+            <h1 class="slide-title">Target Audience</h1>
+            <div class="slide-content">
+                <h2>Primary Audiences</h2>
+                
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Fitness Enthusiasts</h3>
+                        <ul>
+                            <li>Georgian gym-goers across gender lines</li>
+                            <li>Special focus on women's health and fitness</li>
+                            <li>Individuals seeking supplement education</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Performance Athletes</h3>
+                        <ul>
+                            <li>Amateur and professional athletes</li>
+                            <li>Seeking specific performance supplements</li>
+                            <li>Focus on creatine, protein, amino acids</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Health-Conscious Consumers</h3>
+                        <ul>
+                            <li>Tbilisi residents (particularly Vake district)</li>
+                            <li>Wellness-oriented individuals</li>
+                            <li>Focus on vitamins and general health</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Program Seekers</h3>
+                        <ul>
+                            <li>Customers seeking personalized plans</li>
+                            <li>Focus on nutrition and workout programs</li>
+                            <li>Looking for complete solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-5">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">5/10</div>
+            </div>
+            <h1 class="slide-title">Visual Identity Elements</h1>
+            <div class="slide-content">
+                <h2>Brand Logos</h2>
+                <div class="logos-display">
+                    <div class="logo-container">
+                        <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" style="width: 100%; height: auto;">
+                    </div>
+                    <div class="logo-container red-bg">
+                        <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <h2>Brand Colors</h2>
+                <div class="color-swatch">
+                    <div class="swatch" style="background-color: #E23434; color: white;">
+                        <span class="swatch-label">PUMP Red</span>
+                        <span>#E23434</span>
+                    </div>
+                    <div class="swatch" style="background-color: #3159FF; color: white;">
+                        <span class="swatch-label">Healthcare Blue</span>
+                        <span>#3159FF</span>
+                    </div>
+                    <div class="swatch" style="background-color: #121212; color: white;">
+                        <span class="swatch-label">Dark Background</span>
+                        <span>#121212</span>
+                    </div>
+                    <div class="swatch" style="background-color: #1E1E1E; color: white;">
+                        <span class="swatch-label">Dark Surface</span>
+                        <span>#1E1E1E</span>
+                    </div>
+                </div>
+                
+                <h2>Typography</h2>
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Headings</h3>
+                        <p>Bold, impactful sans-serif (Montserrat Bold)</p>
+                        <p style="font-family: Montserrat, sans-serif; font-weight: bold; font-size: 1.5rem; color: var(--pump-red);">PUMP Power</p>
+                    </div>
+                    <div class="column">
+                        <h3>Body Text</h3>
+                        <p>Clean, readable sans-serif (Open Sans)</p>
+                        <p style="font-family: 'Open Sans', sans-serif; color: var(--text-secondary);">Providing premium supplements for peak performance.</p>
+                    </div>
+                </div>
+                
+                <h2>Imagery Style</h2>
+                <ul>
+                    <li>Authentic Georgian athletes and fitness enthusiasts</li>
+                    <li>Clean, well-lit product photography</li>
+                    <li>Content that reflects both general fitness and women-specific health needs</li>
+                    <li>Local gym environments and Georgian landscapes</li>
+                    <li>Dark mode/high contrast product presentations</li>
+                </ul>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-6">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">6/10</div>
+            </div>
+            <h1 class="slide-title">Key Messaging</h1>
+            <div class="slide-content">
+                <div class="highlight-box">
+                    <h3>Taglines</h3>
+                    <p style="font-size: 1.3rem; font-weight: bold; text-align: center; margin: 1rem 0; color: var(--pump-red);">"Power Your Potential"</p>
+                    <p style="text-align: center; font-style: italic; margin-bottom: 1.5rem;">(main tagline)</p>
+                    <div class="two-column" style="text-align: center; font-weight: bold;">
+                        <div class="column" style="border-top-color: var(--pump-red);">
+                            "Georgian Strength, Global Standards"
+                        </div>
+                        <div class="column" style="border-top-color: var(--healthcare-blue);">
+                            "Expert Nutrition for Every Body"
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Brand Differentiators</h2>
+                <ul>
+                    <li>Local understanding of Georgian fitness culture</li>
+                    <li>Carefully curated selection of international supplements</li>
+                    <li>Staff with nutrition and fitness expertise</li>
+                    <li>Georgian language consultation and support</li>
+                    <li>Dedicated women's supplement line</li>
+                    <li>Integrated training and nutrition programs</li>
+                </ul>
+                
+                <div class="highlight-box blue">
+                    <h3>Messaging Tone</h3>
+                    <p>All brand messaging should balance scientific accuracy with accessibility, maintaining a motivational but not aggressive tone. Content should feel authentically Georgian while adhering to international supplement standards.</p>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-7">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">7/10</div>
+            </div>
+            <h1 class="slide-title">Content Strategy: 6 Core Pillars</h1>
+            <div class="slide-content">
+                <div class="content-pillar">
+                    <h3>1. Product Category Spotlights</h3>
+                    <p>Detailed posts about specific supplement categories (protein, creatine, women's supplements, etc.) with educational content about their benefits and usage recommendations tailored to Georgian fitness enthusiasts.</p>
+                </div>
+                
+                <div class="content-pillar">
+                    <h3>2. Workout & Nutrition Programs</h3>
+                    <p>Highlight the existing program offerings (ვარჯიში / კვება) with supplement pairing recommendations and success stories from program participants.</p>
+                </div>
+                
+                <div class="content-pillar">
+                    <h3>3. Women's Wellness Content</h3>
+                    <p>Dedicated content for the "WOMAN" product line addressing female-specific fitness and nutritional needs, creating an inclusive brand voice that speaks to this important audience segment.</p>
+                </div>
+                
+                <div class="content-pillar">
+                    <h3>4. Product Bundle Guides</h3>
+                    <p>Educational content explaining the strategic product bundles (ბანდლები), their synergistic benefits, and cost advantages compared to individual purchases.</p>
+                </div>
+                
+                <div class="content-pillar">
+                    <h3>5. Expert Video Content</h3>
+                    <p>Expand the YouTube channel (ჩვენი იუთუბ არხი) with expert-led content including supplement reviews, workout demonstrations, and nutritional guidance from Georgian fitness professionals.</p>
+                </div>
+                
+                <div class="content-pillar">
+                    <h3>6. Promotional and Loyalty Content</h3>
+                    <p>Strategic communications highlighting special offers, leveraging the newsletter signup (მეტი ფასდაკლებსთვის) to deliver personalized promotions based on customer interests and purchase history.</p>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-8">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">8/10</div>
+            </div>
+            <h1 class="slide-title">Customer Experience</h1>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="column">
+                        <h3>In-Store Experience</h3>
+                        <ul>
+                            <li>Personalized supplement recommendations</li>
+                            <li>Friendly, knowledgeable service in Georgian and English</li>
+                            <li>Clean, organized store layout by supplement categories</li>
+                            <li>Product sample opportunities</li>
+                            <li>Staff trained on all supplement categories</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Digital Experience</h3>
+                        <ul>
+                            <li>Intuitive website navigation</li>
+                            <li>Educational content supporting purchase decisions</li>
+                            <li>Seamless online ordering process</li>
+                            <li>Responsive customer service</li>
+                            <li>Personalized email marketing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Community Building</h3>
+                    <div class="two-column" style="margin-bottom: 0;">
+                        <div class="column" style="border: none; box-shadow: none; background-color: transparent;">
+                            <h3 style="color: var(--pump-red);">Offline Initiatives</h3>
+                            <ul>
+                                <li>In-store events at the Vake location</li>
+                                <li>Fitness workshops and demonstrations</li>
+                                <li>Partnerships with local gyms</li>
+                                <li>Product sampling events</li>
+                            </ul>
+                        </div>
+                        <div class="column" style="border: none; box-shadow: none; background-color: transparent;">
+                            <h3 style="color: var(--healthcare-blue);">Online Community</h3>
+                            <ul>
+                                <li>Social media engagement</li>
+                                <li>Customer loyalty rewards program</li>
+                                <li>Featured success stories</li>
+                                <li>User-generated content campaigns</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-9">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">9/10</div>
+            </div>
+            <h1 class="slide-title">Implementation Recommendations</h1>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Website Enhancement</h3>
+                        <ul>
+                            <li>Improve product categorization</li>
+                            <li>Expand the blog with 6 content pillars</li>
+                            <li>Add educational supplement content</li>
+                            <li>Optimize for mobile users</li>
+                            <li>Enhance product search functionality</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Physical Store Experience</h3>
+                        <ul>
+                            <li>Highlight expert consultation services</li>
+                            <li>Create organized product displays</li>
+                            <li>Develop consistent staff training</li>
+                            <li>Create branded in-store materials</li>
+                            <li>Optimize store layout for discovery</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box blue">
+                    <h3>Digital Marketing Focus</h3>
+                    <ul>
+                        <li>Leverage existing social channels (Facebook, Twitter, YouTube)</li>
+                        <li>Create content in both Georgian and English</li>
+                        <li>Develop email marketing campaigns using the newsletter signup</li>
+                        <li>Consider expanding to Instagram for visual content</li>
+                        <li>Implement a content calendar that balances all six content pillars</li>
+                        <li>Use dark theme design with brand colors for digital assets</li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn">Next <span class="icon icon-next"></span></button>
+            </div>
         </div>
 
-        <div class="slide">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>40 წთ</span>
+        <div class="slide" id="slide-10">
+            <div class="slide-header">
+                <div class="logo">
+                    <img src="https://pump.ge/wp-content/uploads/2025/02/Pump-logo-white.svg" alt="PUMP Logo" class="logo-svg">
+                </div>
+                <div class="slide-number">10/10</div>
             </div>
-            <h1>სოციალური მედიის კონტენტი</h1>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fab fa-linkedin"></i>
-                    <div>LinkedIn</div>
+            <h1 class="slide-title">Next Steps</h1>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Short-Term Actions (1-3 months)</h3>
+                        <ol>
+                            <li>Develop content calendar based on 6 pillars</li>
+                            <li>Begin website enhancements</li>
+                            <li>Train staff on brand messaging</li>
+                            <li>Launch new social media content</li>
+                            <li>Collect customer testimonials</li>
+                        </ol>
+                    </div>
+                    <div class="column">
+                        <h3>Mid-Term Goals (3-6 months)</h3>
+                        <ol>
+                            <li>Complete website redesign</li>
+                            <li>Develop formal loyalty program</li>
+                            <li>Expand YouTube channel content</li>
+                            <li>Enhance in-store product displays</li>
+                            <li>Begin targeted email marketing</li>
+                        </ol>
+                    </div>
                 </div>
-                <div class="icon-item">
-                    <i class="fab fa-instagram"></i>
-                    <div>Instagram</div>
+                
+                <div class="highlight-box">
+                    <h3>Long-Term Vision (6-12 months)</h3>
+                    <ol>
+                        <li>Evaluate strategy effectiveness and refine</li>
+                        <li>Consider expansion opportunities (new locations, products)</li>
+                        <li>Develop partnerships with Georgian fitness influencers</li>
+                        <li>Explore creating PUMP-branded supplement lines</li>
+                        <li>Build comprehensive customer database for personalized marketing</li>
+                    </ol>
                 </div>
-                <div class="icon-item">
-                    <i class="fab fa-twitter"></i>
-                    <div>Twitter</div>
-                </div>
+                
+                <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem; color: var(--text-primary);">
+                    <span style="color: var(--pump-red); font-weight: bold;">PUMP</span> + 
+                    <span style="color: var(--healthcare-blue); font-weight: bold;">healthcare</span> = 
+                    Georgian Fitness Excellence
+                </p>
             </div>
-            <ul>
-                <li>პროდუქტის პოსტების შექმნა</li>
-                <li>პაციენტის განათლების კონტენტი</li>
-                <li>კამპანიის ვიზუალები</li>
-            </ul>
+            <div class="nav-buttons">
+                <button class="nav-btn prev-btn"><span class="icon icon-prev"></span> Previous</button>
+                <button class="nav-btn next-btn" disabled>Next <span class="icon icon-next"></span></button>
+            </div>
         </div>
 
-        <div class="slide">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>40 წთ</span>
-            </div>
-            <h1>მარკეტინგული მასალები</h1>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>Email</div>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-book"></i>
-                    <div>Brochure</div>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-laptop"></i>
-                    <div>Slides</div>
-                </div>
-            </div>
-            <ul>
-                <li>საინფორმაციო ბიულეტენი</li>
-                <li>ციფრული ბროშურები</li>
-                <li>პრეზენტაციები</li>
-            </ul>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
         </div>
-
-        <div class="slide">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>20 წთ</span>
+        
+        <div class="slide-menu">
+            <button class="menu-btn"><span class="icon icon-menu"></span> Menu</button>
+            <div class="slide-menu-list">
+                <div class="menu-item" data-slide="1">1. Cover</div>
+                <div class="menu-item" data-slide="2">2. Current Brand Overview</div>
+                <div class="menu-item" data-slide="3">3. Brand Essence & Positioning</div>
+                <div class="menu-item" data-slide="4">4. Target Audience</div>
+                <div class="menu-item" data-slide="5">5. Visual Identity Elements</div>
+                <div class="menu-item" data-slide="6">6. Key Messaging</div>
+                <div class="menu-item" data-slide="7">7. Content Strategy</div>
+                <div class="menu-item" data-slide="8">8. Customer Experience</div>
+                <div class="menu-item" data-slide="9">9. Implementation Recommendations</div>
+                <div class="menu-item" data-slide="10">10. Next Steps</div>
             </div>
-            <h1>გუნდური გამოწვევა</h1>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fas fa-users"></i>
-                    <div>Team</div>
-                </div>
-            </div>
-            <ul>
-                <li>მინი-კამპანიის შექმნა</li>
-                <li>3 ვიზუალის მომზადება</li>
-                <li>პრეზენტაცია და უკუკავშირი</li>
-            </ul>
-        </div>
-
-        <div class="slide">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>10 წთ</span>
-            </div>
-            <h1>შეჯამება და რესურსები</h1>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>Summary</div>
-                </div>
-            </div>
-            <ul>
-                <li>მთავარი დასკვნები</li>
-                <li>მოწინავე ტექნიკები</li>
-                <li>პრომპტების ბიბლიოთეკა</li>
-                <li>საუკეთესო პრაქტიკა</li>
-            </ul>
-        </div>
-
-        <div class="slide">
-            <div class="timing">
-                <i class="fas fa-clock"></i>
-                <span>საჭირო</span>
-            </div>
-            <h1>მოთხოვნები</h1>
-            <div class="icon-container">
-                <div class="icon-item">
-                    <i class="fas fa-laptop"></i>
-                    <div>Equipment</div>
-                </div>
-                <div class="icon-item">
-                    <i class="fas fa-user-circle"></i>
-                    <div>Accounts</div>
-                </div>
-            </div>
-            <ul>
-                <li>ლეპტოპები</li>
-                <li>Recraft და Poe ანგარიშები</li>
-                <li>ბრენდის სახელმძღვანელო</li>
-                <li>სამედიცინო კონტენტის მაგალითები</li>
-            </ul>
         </div>
     </div>
-
-    <div class="controls">
-        <button onclick="previousSlide()"><i class="fas fa-arrow-left"></i> წინა</button>
-        <button onclick="nextSlide()">შემდეგი <i class="fas fa-arrow-right"></i></button>
-    </div>
-    <div class="slide-number"></div>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const slideNumber = document.querySelector('.slide-number');
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelectorAll('.prev-btn');
+            const nextBtn = document.querySelectorAll('.next-btn');
+            const progressBar = document.querySelector('.progress-bar');
+            const menuBtn = document.querySelector('.menu-btn');
+            const slideMenuList = document.querySelector('.slide-menu-list');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            let currentSlide = 1;
+            const totalSlides = slides.length;
+            
+            // Initialize progress bar
+            updateProgressBar();
+            
+            // Setup navigation buttons
+            prevBtn.forEach(btn => {
+                btn.addEventListener('click', goToPreviousSlide);
+            });
+            
+            nextBtn.forEach(btn => {
+                btn.addEventListener('click', goToNextSlide);
+            });
+            
+            // Setup keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    goToNextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    goToPreviousSlide();
+                }
+            });
+            
+            // Setup menu
+            menuBtn.addEventListener('click', function() {
+                slideMenuList.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!slideMenuList.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) {
+                    slideMenuList.classList.remove('active');
+                }
+            });
+            
+            // Setup menu items
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const slideNumber = parseInt(this.dataset.slide);
+                    if (!isNaN(slideNumber)) {
+                        goToSlide(slideNumber);
+                        slideMenuList.classList.remove('active');
+                    }
+                });
+            });
+            
+            function goToNextSlide() {
+                if (currentSlide < totalSlides) {
+                    goToSlide(currentSlide + 1);
+                }
+            }
+            
+            function goToPreviousSlide() {
+                if (currentSlide > 1) {
+                    goToSlide(currentSlide - 1);
+                }
+            }
+            
+            function goToSlide(slideNumber) {
+                // Remove active class from current slide
+                document.querySelector(`.slide:nth-child(${currentSlide})`).classList.remove('active');
+                
+                // Add active class to new slide
+                document.querySelector(`.slide:nth-child(${slideNumber})`).classList.add('active');
+                
+                // Update current slide
+                currentSlide = slideNumber;
+                
+                // Update button states
+                updateButtonStates();
+                
+                // Update progress bar
+                updateProgressBar();
+            }
+            
+            function updateButtonStates() {
+                // Disable previous button on first slide
+                prevBtn.forEach(btn => {
+                    btn.disabled = currentSlide === 1;
+                });
+                
+                // Disable next button on last slide
+                nextBtn.forEach(btn => {
+                    btn.disabled = currentSlide === totalSlides;
+                });
+            }
+            
+            function updateProgressBar() {
+                const progressPercentage = (currentSlide / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+            }
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            slideNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
-        }
+            // Add touch support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+            
+            document.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe left (next slide)
+                    goToNextSlide();
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe right (previous slide)
+                    goToPreviousSlide();
+                }
+            }
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+            // Add animation effect for content pillars
+            const contentPillars = document.querySelectorAll('.content-pillar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        function previousSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') previousSlide();
+            contentPillars.forEach(pillar => {
+                pillar.style.opacity = 0;
+                pillar.style.transform = 'translateY(20px)';
+                pillar.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(pillar);
+            });
         });
-
-        showSlide(0);
     </script>
 </body>
 </html>
