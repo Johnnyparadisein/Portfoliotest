@@ -13,8 +13,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Exit if elements don't exist
   if (!portfolioGrid || !filterBtns.length) return;
   
-  // Set first filter as active by default
-  filterBtns[0].classList.add('active');
+  // Set first filter as active by default if none is already active
+  if (!document.querySelector('.filter-btn.active')) {
+    filterBtns[0].classList.add('active');
+  }
+  
+  // Create grid sizer elements if they don't exist
+  if (!portfolioGrid.querySelector('.grid-sizer')) {
+    const gridSizer = document.createElement('div');
+    gridSizer.className = 'grid-sizer';
+    portfolioGrid.appendChild(gridSizer);
+  }
+  
+  if (!portfolioGrid.querySelector('.gutter-sizer')) {
+    const gutterSizer = document.createElement('div');
+    gutterSizer.className = 'gutter-sizer';
+    portfolioGrid.appendChild(gutterSizer);
+  }
   
   // Initialize Isotope with error handling
   let iso;
@@ -22,9 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.Isotope) {
       iso = new Isotope(portfolioGrid, {
         itemSelector: '.project-card',
-        layoutMode: 'fitRows',
-        fitRows: {
-          gutter: 30
+        percentPosition: true,
+        layoutMode: 'masonry',
+        masonry: {
+          columnWidth: '.grid-sizer',
+          gutter: '.gutter-sizer'
         },
         transitionDuration: '0.4s',
         hiddenStyle: {
@@ -41,16 +58,30 @@ document.addEventListener('DOMContentLoaded', function() {
       if (window.imagesLoaded) {
         imagesLoaded(portfolioGrid, function() {
           iso.layout();
+          console.log('Isotope layout refreshed after images loaded');
         });
       } else {
         // Fallback if imagesLoaded is not available
         window.addEventListener('load', function() {
           iso.layout();
+          console.log('Isotope layout refreshed on window load');
         });
       }
+      
+      // Periodically relayout in case of dynamic content or slow-loading resources
+      setTimeout(function() {
+        if (iso) {
+          iso.layout();
+          console.log('Isotope layout refreshed after timeout');
+        }
+      }, 1000);
     }
   } catch (error) {
     console.warn('Isotope initialization failed:', error);
+    // Apply fallback grid styling 
+    portfolioGrid.style.display = 'grid';
+    portfolioGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
+    portfolioGrid.style.gap = '2.5rem';
   }
   
   // Click handler for filter buttons
@@ -71,8 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (filterValue === 'all') {
           iso.arrange({ filter: '*' });
         } else {
-          iso.arrange({ filter: `[data-category~="${filterValue}"]` });
+          iso.arrange({ filter: `[data-category*="${filterValue}"]` });
         }
+        
+        // Force relayout after filter change
+        setTimeout(() => {
+          iso.layout();
+        }, 100);
       } else {
         // Fallback to basic filtering with animation
         projectCards.forEach(card => {

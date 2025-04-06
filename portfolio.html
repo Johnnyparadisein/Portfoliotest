@@ -9,12 +9,12 @@
     <meta name="description" content="John Kvezereli - Complete portfolio of work in Graphic Design, Social Media, AI and Motion Design">
     <meta name="keywords" content="John Kvezereli, graphic design, AI design, motion design, social media design, creative portfolio">
     <meta name="author" content="John Kvezereli">
-    <meta name="theme-color" content="#ff4d00">
+    <meta name="theme-color" content="#00f0ff">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="styles/variables.css">
@@ -24,6 +24,108 @@
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/portfolio.css">
+    
+    <!-- Inline style fixes for portfolio grid -->
+    <style>
+        /* Fix for overlapping grid items */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .project-card {
+            width: 100%;
+            height: auto;
+            margin-bottom: 0;
+            display: block;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--bg-dark-tertiary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+            background-color: #121212;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+            position: relative;
+            min-height: 150px;
+        }
+        
+        .view-project {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: transparent;
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-project:hover {
+            background-color: var(--accent-primary);
+            color: var(--bg-dark-primary);
+        }
+        
+        /* Hide grid sizer elements */
+        .grid-sizer, .gutter-sizer {
+            display: none;
+        }
+        
+        /* Isotope specific overrides */
+        .isotope-item {
+            z-index: 2;
+        }
+        
+        .isotope-hidden.isotope-item {
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* For non-isotope fallback */
+        @supports not (display: grid) {
+            .portfolio-grid {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .project-card {
+                flex: 0 0 calc(33.333% - 20px);
+                margin: 10px;
+            }
+            
+            @media (max-width: 992px) {
+                .project-card {
+                    flex: 0 0 calc(50% - 20px);
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .project-card {
+                    flex: 0 0 100%;
+                }
+            }
+        }
+    </style>
     
     <!-- External Libraries -->
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js" defer></script>
@@ -71,16 +173,16 @@
     <section id="portfolio" class="portfolio-section">
         <div class="container">
             <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI Design</button>
-                <button class="filter-btn" data-filter="branding">Branding</button>
-                <button class="filter-btn" data-filter="social">Social Media</button>
-                <button class="filter-btn" data-filter="motion">Motion</button>
-                <button class="filter-btn" data-filter="print">Print</button>
-                <button class="filter-btn" data-filter="web3">Web3</button>
-                <button class="filter-btn" data-filter="illustration">Illustration</button>
-                <button class="filter-btn" data-filter="typography">Typography</button>
-                <button class="filter-btn" data-filter="logo">Logo</button>
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="ai">AI DESIGN</button>
+                <button class="filter-btn" data-filter="branding">BRANDING</button>
+                <button class="filter-btn" data-filter="social">SOCIAL MEDIA</button>
+                <button class="filter-btn" data-filter="motion">MOTION</button>
+                <button class="filter-btn" data-filter="print">PRINT</button>
+                <button class="filter-btn" data-filter="web3">WEB3</button>
+                <button class="filter-btn" data-filter="illustration">ILLUSTRATION</button>
+                <button class="filter-btn" data-filter="typography">TYPOGRAPHY</button>
+                <button class="filter-btn" data-filter="logo">LOGO</button>
             </div>
 
             <div class="portfolio-grid" id="portfolio-grid">
