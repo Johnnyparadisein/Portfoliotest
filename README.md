@@ -64,4 +64,4 @@ All rights reserved.
 
 ## Contact
 
-John Kvezereli - john@kvezereli.com 
+John Kvezereli - john@kvezereli.com # Repository updated to new URL
