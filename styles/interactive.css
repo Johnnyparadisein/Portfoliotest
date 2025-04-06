@@ -1,0 +1,163 @@
+/* Advanced Custom Cursor */
+.cursor-outer {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.cursor-inner {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.cursor-grow {
+  transform: translate(-50%, -50%) scale(1.8);
+  background-color: transparent;
+  border: 1px solid var(--accent-primary);
+}
+
+/* Interactive Links & Buttons */
+.hover-effect {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.hover-effect:hover {
+  color: var(--accent-primary);
+}
+
+.hover-effect::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-primary);
+  transition: width 0.2s ease;
+}
+
+.hover-effect:hover::after {
+  width: 100%;
+}
+
+/* Simplified button styles */
+.cta-button {
+  position: relative;
+  padding: 0.9rem 2rem;
+  background: var(--accent-primary);
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent-primary);
+  transform: translateY(-3px);
+}
+
+/* Basic button */
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--bg-dark-tertiary);
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.button.active {
+  background: var(--accent-primary);
+  color: #000;
+  border-color: var(--accent-primary);
+}
+
+/* Project card hover effects - simplified */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  overflow: hidden;
+}
+
+.project-image img {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* Filter buttons */
+.filter-btn {
+  background: var(--bg-dark-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-medium);
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 0.25rem;
+}
+
+.filter-btn:hover {
+  color: var(--text-light);
+  border-color: var(--text-medium);
+}
+
+.filter-btn.active {
+  background: var(--accent-primary);
+  color: #000;
+  border-color: var(--accent-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cta-button, .button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+.button-hover-fill:hover {
+  background: var(--accent-primary);
+  color: var(--bg-dark-primary);
+} 

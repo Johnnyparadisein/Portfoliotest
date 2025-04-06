@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Kvezereli - Full Portfolio</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="John Kvezereli - Complete portfolio of work in Graphic Design, Social Media, AI and Motion Design">
+    <meta name="keywords" content="John Kvezereli, graphic design, AI design, motion design, social media design, creative portfolio">
+    <meta name="author" content="John Kvezereli">
+    <meta name="theme-color" content="#ff4d00">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/visual-design.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/portfolio.css">
+    
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js" defer></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" defer></script>
+</head>
+<body>
+    <!-- Background Elements -->
+    <!-- <div class="bg-noise"></div> -->
+    <!-- <div class="grid-lines"></div> -->
+    <div class="scroll-progress-bar"></div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav" id="main-nav"> 
+        <div class="container"> 
+            <div class="nav-logo"> 
+                <a href="index.html" class="hover-effect">John Kvezereli</a> 
+            </div> 
+            <div class="nav-toggle" id="nav-toggle"> 
+                <span></span><span></span><span></span> 
+            </div> 
+            <div class="nav-links" id="nav-links"> 
+                <ul> 
+                    <li><a href="index.html#about-skills" class="hover-effect">About</a></li>
+                    <li><a href="index.html#featured-work" class="hover-effect">Work</a></li> 
+                    <li><a href="index.html#experience" class="hover-effect">Experience</a></li> 
+                    <li><a href="index.html#contact" class="hover-effect">Contact</a></li> 
+                </ul> 
+            </div> 
+        </div> 
+    </nav>
+
+    <!-- Portfolio Header -->
+    <section class="portfolio-header">
+        <div class="container">
+            <div class="section-header">
+                <div class="bg-text">PORTFOLIO</div>
+                <h1>Complete Portfolio</h1>
+                <p class="large-text">A comprehensive collection of my work across various disciplines and mediums.</p>
+                <a href="index.html" class="cta-button cta-secondary">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI Design</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn" data-filter="motion">Motion</button>
+                <button class="filter-btn" data-filter="print">Print</button>
+                <button class="filter-btn" data-filter="web3">Web3</button>
+                <button class="filter-btn" data-filter="illustration">Illustration</button>
+                <button class="filter-btn" data-filter="typography">Typography</button>
+                <button class="filter-btn" data-filter="logo">Logo</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Projects from main page -->
+                <article class="project-card" data-category="branding print social" data-modal-img-src="images/project-modal-placeholder-bl-beer.jpg">
+                    <div class="project-image">
+                        <img src="images/black-lion-lighter-visual-(NEW)-Camera.jpg" alt="Black Lion Craft Beer" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Branding / Print</span>
+                        <h4>Black Lion Craft Beer Campaign</h4>
+                        <p class="short-desc">Adapting visual concepts with AI enhancements.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="ai print branding packaging" data-modal-img-src="images/project-modal-placeholder-bl-sup.jpg">
+                    <div class="project-image">
+                        <img src="images/black-lion-sup-board-final.png" alt="Black Lion SUP Board" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">AI / Print / Branding</span>
+                        <h4>Black Lion SUP Board Campaign</h4>
+                        <p class="short-desc">Creative outdoor advertising concept.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="social print" data-modal-img-src="images/project-modal-placeholder-alcorium-bottle.jpg">
+                    <div class="project-image">
+                        <img src="images/ახალი-ბოთლით-close-ups-05.06.png" alt="Alcorium Bottle Close-up" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Social Media / Print</span>
+                        <h4>Alcorium: Bottle Close-ups</h4>
+                        <p class="short-desc">Product detail photography for marketing materials.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="print branding illustration" data-modal-img-src="images/project-modal-placeholder-bl-cup.jpg">
+                    <div class="project-image">
+                        <img src="images/open-cup-black-lion-12.03.png" alt="Black Lion Open Cup" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Print / Branding</span>
+                        <h4>Black Lion Open Cup Event</h4>
+                        <p class="short-desc">Event branding for craft beer competition.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="ai social" data-modal-img-src="images/project-modal-placeholder-kfc-social-1.jpg">
+                    <div class="project-image">
+                        <img src="images/KFC-06.03-2.png" alt="KFC Social Media AI Posts" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">AI / Social Media</span>
+                        <h4>Social Media: KFC (AI Enhanced)</h4>
+                        <p class="short-desc">Using AI to create dynamic social media content.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="social branding" data-modal-img-src="images/project-modal-placeholder-alcorium-plants.jpg">
+                    <div class="project-image">
+                        <img src="images/ახალი-ბოთლით-plants-Camera.png" alt="Alcorium Bottle Plants" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Social Media / Branding</span>
+                        <h4>Social Media: Alcorium Revamp</h4>
+                        <p class="short-desc">Establishing a fresh visual identity for social media.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="social media" data-modal-img-src="images/project-modal-placeholder-kfc-promo.jpg">
+                    <div class="project-image">
+                        <img src="images/KFC-14.02-3.jpg" alt="KFC Promotion" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Social Media</span>
+                        <h4>KFC Promotional Campaign</h4>
+                        <p class="short-desc">Special offers and promotions for social media.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="print branding" data-modal-img-src="images/project-modal-placeholder-alcorium-card.jpg">
+                    <div class="project-image">
+                        <img src="images/alcorium-loyalty-cASDard-05.07.png" alt="Alcorium Loyalty Card" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Print / Branding</span>
+                        <h4>Alcorium Loyalty Card</h4>
+                        <p class="short-desc">Customer retention program design.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="web podcast" data-modal-img-src="images/project-modal-placeholder-wine-podcast.jpg">
+                    <div class="project-image">
+                        <img src="images/საუბარი-ღვინოზე-#1- &-#2-18.06.png" alt="Wine Podcast" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Web / Podcast</span>
+                        <h4>Wine Podcast Series</h4>
+                        <p class="short-desc">Digital promotion for wine tasting podcast.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+                
+                <!-- Additional projects -->
+                <article class="project-card" data-category="motion video" data-modal-img-src="images/project-modal-placeholder-kfc-motion.jpg">
+                    <div class="project-image">
+                        <img src="images/1KFC-18.03.png" alt="KFC Motion Graphics" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Motion Graphics</span>
+                        <h4>KFC Promotional Videos</h4>
+                        <p class="short-desc">Dynamic motion graphics for social media campaigns.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-category="ai photography" data-modal-img-src="images/project-modal-placeholder-kfc-ai-photo.jpg">
+                    <div class="project-image">
+                        <img src="images/KFC-03sdf.04.png" alt="KFC AI Enhanced" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">AI / Photography</span>
+                        <h4>KFC AI Enhanced Graphics</h4>
+                        <p class="short-desc">Using AI tools to transform and enhance promotional materials.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-category="branding packaging" data-modal-img-src="images/project-modal-placeholder-bottle-open.jpg">
+                    <div class="project-image">
+                        <img src="images/ახალი-ბოთლით-opening-Camera-2.png" alt="Bottle Opening" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Branding / Packaging</span>
+                        <h4>Bottle Opening Campaign</h4>
+                        <p class="short-desc">Product launch visual design concept.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-category="social motion" data-modal-img-src="images/project-modal-placeholder-iced-bev.jpg">
+                    <div class="project-image">
+                        <img src="images/ახალი-ბოთლით-iceსდფ-baybe-Camera-3.png" alt="Iced Beverage" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Social Media / Product</span>
+                        <h4>Iced Beverage Campaign</h4>
+                        <p class="short-desc">Summer product marketing with ice visuals.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <a href="index.html">John Kvezereli</a>
+                    </div>
+                    <p class="footer-text">Creative designer and digital artist specializing in innovative visual solutions and emerging technologies.</p>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#about-skills">About</a></li>
+                        <li><a href="index.html#featured-work">Work</a></li>
+                        <li><a href="index.html#experience">Experience</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/john-kvezereli" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://www.behance.net/johnkvezereli" target="_blank" rel="noopener">Behance</a></li>
+                        <li><a href="https://www.instagram.com/johnkvezereli" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="mailto:john@johnkvezereli.com">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; <span id="current-year">2023</span> John Kvezereli. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 class="modal__title">Project Title</h3>
+                <button class="modal__close">&times;</button>
+            </div>
+            <div class="modal__body">
+                <img src="" alt="Project Details" class="modal-image" id="modal-image">
+                <div class="modal-content" id="modal-content">
+                    <p>Project details will be loaded here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js" defer></script>
+    <script src="js/filters.js" defer></script>
+    <script src="js/theme-toggle.js" defer></script>
+</body>
+</html> 
