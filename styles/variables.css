@@ -15,6 +15,13 @@
   --accent-primary-rgb: 0, 240, 255;
   --accent-secondary: #ff4d00;
   --accent-secondary-rgb: 255, 77, 0;
+  --accent-tertiary: #5d00ff;
+  --accent-tertiary-rgb: 93, 0, 255;
+  
+  /* Status Colors */
+  --success-color: #00de8b;
+  --error-color: #ff3d75;
+  --warning-color: #ffb340;
   
   /* UI Element colors */
   --border-color: #2a2a2a;
@@ -22,11 +29,14 @@
   --input-bg: #202020;
   --input-border: #323232;
   --icon-color: #8a8a8a;
+  --glass-effect: rgba(36, 36, 36, 0.5);
   
   /* Gradients */
-  --gradient-primary: linear-gradient(120deg, var(--accent-primary), #5d00ff);
+  --gradient-primary: linear-gradient(120deg, var(--accent-primary), var(--accent-tertiary));
+  --gradient-secondary: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
   --gradient-dark: linear-gradient(to bottom, rgba(8,8,8,0.8), rgba(8,8,8,1));
   --gradient-overlay: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+  --gradient-glass: linear-gradient(120deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
   
   /* Shadows */
   --shadow-color: rgba(0, 0, 0, 0.2);
@@ -34,6 +44,7 @@
   --box-shadow-sm: 0 2px 10px var(--shadow-color);
   --box-shadow-md: 0 5px 20px var(--shadow-color);
   --box-shadow-lg: 0 10px 40px var(--shadow-color);
+  --box-shadow-xl: 0 16px 52px rgba(0, 0, 0, 0.45);
   --box-shadow-accent: 0 5px 20px var(--shadow-accent);
   
   /* Spacing */
@@ -43,10 +54,11 @@
   --spacing-lg: 2rem;     /* 32px */
   --spacing-xl: 3rem;     /* 48px */
   --spacing-xxl: 5rem;    /* 80px */
+  --section-gap: 180px;
   
   /* Typography */
   --font-primary: 'Inter', sans-serif;
-  --font-secondary: 'Manrope', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
   --font-accent: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   
@@ -97,12 +109,18 @@
   --z-overlay: 800;
   --z-max: 9999;
   
+  /* Special Effects */
+  --backdrop-blur: blur(15px);
+  --glow-effect: 0 0 20px var(--accent-primary);
+  
   /* Container widths */
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
   --container-2xl: 1536px;
+  --container-width: 1440px;
+  --container-padding: 32px;
 }
 
 /* Media query presets as CSS variables */
