@@ -1,0 +1,85 @@
+/**
+ * Fallback CSS
+ * Ensures basic content visibility even if other CSS fails to load
+ */
+
+/* Basic visibility reset */
+* {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Core elements forced to display */
+body, html, header, main, section, footer, div, p, h1, h2, h3, h4, h5, h6, span, a, img {
+  display: initial;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Layout elements */
+body {
+  font-family: sans-serif;
+  color: #ffffff;
+  background: #0a0e17;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base layout */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Block elements */
+section, header, footer, .preloader, nav, div {
+  display: block;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+/* Links */
+a {
+  color: #4d61fc;
+  text-decoration: none;
+}
+
+/* Hide preloader */
+.preloader {
+  display: none !important;
+}
+
+/* Emergency responsive fixes */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* Columns will stack */
+@media (max-width: 576px) {
+  .about-grid, .stats-wrapper, .contact-container {
+    display: block !important;
+  }
+} 

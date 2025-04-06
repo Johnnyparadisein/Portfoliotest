@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "John Kvezereli",
+  "jobTitle": "Experienced Designer",
+  "url": "https://yourwebsite.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/john-kvezereli"
+  ],
+  "workExample": [
+    {
+      "@type": "CreativeWork",
+      "name": "Visual Style Update: Dunkin'",
+      "description": "Adapting global brand guidelines for the Georgian market"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Black Lion Craft Beer Campaign",
+      "description": "AI-enhanced visuals for a craft beer print campaign"
+    }
+  ],
+  "knowsAbout": [
+    "Graphic Design",
+    "AI Design",
+    "Motion Design",
+    "Social Media Content",
+    "Typography"
+  ]
+} 

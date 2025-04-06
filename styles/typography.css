@@ -1,0 +1,325 @@
+/*
+* Typography.css - Flagpole Inspired
+* Contains all typography styles
+*/
+
+/* Import fonts if needed */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Base Typography */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--h1-size);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: var(--h2-size);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--h3-size);
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: var(--h4-size);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.large-text {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.small-text {
+  font-size: var(--small-size);
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--accent-primary);
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Special Text Formatting */
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+/* Section Headings */
+.section-header {
+  position: relative;
+  margin-bottom: 5rem;
+  overflow: hidden;
+}
+
+.section-header h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 4px;
+  width: 60px;
+  background-color: var(--accent-primary);
+}
+
+.section-header .bg-text {
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  font-size: 8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+/* Quotes */
+blockquote {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  border-left: 4px solid var(--accent-primary);
+  position: relative;
+}
+
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  color: var(--accent-primary);
+  opacity: 0.3;
+}
+
+cite {
+  display: block;
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-style: normal;
+  opacity: 0.8;
+}
+
+/* Code */
+code {
+  font-family: var(--font-accent);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-sm);
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Labels and Tags */
+.label, .tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25em 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.label {
+  background: var(--accent-primary);
+  color: var(--text-light);
+}
+
+.tag {
+  border: 1px solid var(--border-color);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Category Tags */
+.category-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  h1 {
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+  }
+  
+  h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .section-header .bg-text {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 3rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+  }
+  
+  p.lead {
+    font-size: 1.15rem;
+  }
+  
+  .section-header .bg-text {
+    font-size: 4rem;
+  }
+  
+  blockquote {
+    font-size: 1.25rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+  
+  .section-header .bg-text {
+    font-size: 3rem;
+    top: -15px;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+} 

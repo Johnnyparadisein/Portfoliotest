@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Kvezereli | Creative Designer & Digital Artist</title>
+    
+    <!-- Performance Improvements -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="styles/fallback.css" as="style">
+    
+    <!-- Fallback CSS (loads first to ensure visibility) -->
+    <link rel="stylesheet" href="styles/fallback.css">
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="John Kvezereli - Award-winning designer creating innovative visual solutions in AI, Graphic Design, Motion Design and Digital Art.">
+    <meta name="keywords" content="John Kvezereli, designer, graphic design, AI design, motion design, digital art, creative portfolio, visual design, branding">
+    <meta name="author" content="John Kvezereli">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ff4d00">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://johnkvezereli.com/">
+    <meta property="og:title" content="John Kvezereli | Creative Designer & Digital Artist">
+    <meta property="og:description" content="Award-winning designer creating innovative visual solutions in AI, Graphic Design, Motion Design and Digital Art.">
+    <meta property="og:image" content="https://johnkvezereli.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://johnkvezereli.com/">
+    <meta property="twitter:title" content="John Kvezereli | Creative Designer & Digital Artist">
+    <meta property="twitter:description" content="Award-winning designer creating innovative visual solutions in AI, Graphic Design, Motion Design and Digital Art.">
+    <meta property="twitter:image" content="https://johnkvezereli.com/images/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- CSS Files (Reordered for better cascade) -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/visual-design.css">
+    
+    <!-- External Libraries (with defer attributes) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    
+    <!-- Critical CSS for First Paint -->
+    <style>
+        /* Inline critical CSS for immediate rendering */
+        :root {
+            --bg-dark-primary: #141414;
+            --text-light: #ffffff;
+            --accent-primary: #ff4d00;
+        }
+        body {
+            background-color: var(--bg-dark-primary);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            min-height: 100vh;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 77, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: #ff4d00;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "John Kvezereli",
+      "url": "https://johnkvezereli.com",
+      "image": "https://johnkvezereli.com/images/john-kvezereli-portrait.jpg",
+      "jobTitle": "Creative Designer & Digital Artist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Creative Agency X"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "University of Arts"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/john-kvezereli",
+        "https://www.behance.net/johnkvezereli",
+        "https://www.instagram.com/johnkvezereli"
+      ],
+      "knowsAbout": [
+        "Graphic Design",
+        "AI Design",
+        "Motion Design",
+        "Social Media Content",
+        "Typography",
+        "Web3 Design"
+      ]
+    }
+    </script>
+    
+    <!-- Preload detection -->
+    <script>
+        // Force content visibility
+        document.documentElement.style.visibility = 'visible';
+        document.documentElement.style.opacity = '1';
+        
+        // Set timeout to hide preloader in case other events fail
+        window.PRELOADER_TIMEOUT = setTimeout(function() {
+            var preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.display = 'none';
+            }
+            document.body.classList.add('loaded');
+        }, 1000);
+    </script>
+</head>
+<body class="loading">
+    <!-- Preloader with data attribute for JS targeting -->
+    <div class="preloader" data-preloader>
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Background Elements -->
+    <!-- <div class="bg-noise"></div> -->
+    <!-- <div class="grid-lines"></div> -->
+    <div class="scroll-progress-bar"></div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav" id="main-nav"> 
+        <div class="container"> 
+            <div class="nav-logo"> 
+                <a href="#hero" class="hover-effect">John Kvezereli</a> 
+            </div> 
+            <div class="nav-toggle" id="nav-toggle"> 
+                <span></span><span></span><span></span> 
+            </div> 
+            <div class="nav-links" id="nav-links"> 
+                <ul> 
+                    <li><a href="#about-skills" class="hover-effect">About</a></li>
+                    <li><a href="#featured-work" class="hover-effect">Work</a></li> 
+                    <li><a href="#experience" class="hover-effect">Experience</a></li> 
+                    <li><a href="#contact" class="hover-effect">Contact</a></li> 
+                </ul> 
+            </div> 
+        </div> 
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero"> 
+        <div class="container"> 
+            <div class="hero-content fade-in"> 
+                <h1 class="text-gradient">CREATIVE<br>DESIGNER</h1>
+                <p class="lead delay-1"> 
+                    John Kvezereli is an award-winning designer with expertise in creating visual solutions that blend innovation with functionality. His work spans <span class="text-accent">Graphic Design</span>, <span class="text-accent">Digital Art</span>, and the cutting-edge realms of <span class="text-accent">AI</span> and <span class="text-accent">Web3</span>.
+                </p> 
+                <div class="hero-stats delay-2">
+                    <div class="stat">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+                <div class="cta-container fade-in delay-3">
+                    <a href="#featured-work" class="cta-button">Work</a> 
+                    <a href="portfolio.html" class="cta-button cta-secondary">Portfolio</a>
+                </div>
+            </div> 
+            <a href="#about-skills" class="scroll-down" aria-label="Scroll down">↓</a> 
+        </div> 
+    </section>
+
+    <!-- About & Skills Section -->
+    <section id="about-skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="bg-text">ABOUT</div>
+                <h2>About & Skills</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content fade-in-left">
+                    <h3>My Approach</h3>
+                    <p class="large-text">My design philosophy centers on creating work that not only captivates visually but also communicates effectively.</p>
+                    
+                    <p>With over 7 years of experience working with brands across different industries, I've developed a versatile approach that adapts to each project's unique requirements while maintaining a consistent commitment to excellence and innovation.</p>
+                    
+                    <div class="divider divider--accent"></div>
+                    
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-content">
+                                <h4 class="text-uppercase">Innovation</h4>
+                                <p>Pushing boundaries with emerging technologies and creative approaches</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="value-content">
+                                <h4 class="text-uppercase">Precision</h4>
+                                <p>Meticulous attention to detail in every element of the design process</p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-item">
+                            <div class="value-content">
+                                <h4 class="text-uppercase">Adaptability</h4>
+                                <p>Versatile design skills that evolve with changing industry trends</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-content fade-in-right">
+                    <h3>My Expertise</h3>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Creative Design</h4>
+                            <div class="skill-item">
+                                <div class="skill-name">Graphic Design</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">UI/UX Design</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Typography</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Digital Media</h4>
+                            <div class="skill-item">
+                                <div class="skill-name">Motion Design</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Social Media</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Digital Art</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Emerging Tech</h4>
+                            <div class="skill-item">
+                                <div class="skill-name">AI Design Tools</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Web3 Design</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">AR/VR Design</div>
+                                <div class="progress">
+                                    <div class="progress__bar" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tools">
+                        <h4>Tools & Software</h4>
+                        <div class="tools-list">
+                            <span class="tool-tag">Photoshop</span>
+                            <span class="tool-tag">Illustrator</span>
+                            <span class="tool-tag">After Effects</span>
+                            <span class="tool-tag">Figma</span>
+                            <span class="tool-tag">Premiere Pro</span>
+                            <span class="tool-tag">Midjourney</span>
+                            <span class="tool-tag">DALL-E</span>
+                            <span class="tool-tag">Stable Diffusion</span>
+                            <span class="tool-tag">Blender</span>
+                            <span class="tool-tag">Cinema 4D</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-wrapper">
+                <div class="stats-content fade-in-left">
+                    <div class="section-header text-left">
+                        <h2>Impactful Results</h2>
+                    </div>
+                    <p class="lead">My design work has consistently delivered measurable results for clients across industries, helping them increase engagement, build brand recognition, and connect with their target audiences.</p>
+                    <a href="#contact" class="cta-button">Work With Me</a>
+                </div>
+                
+                <div class="stats-grid fade-in-right">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="7">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Awards Won</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section id="featured-work">
+        <div class="container">
+            <div class="section-header">
+                <div class="bg-text">WORK</div>
+                <h2>Featured Work</h2>
+                <p class="large-text">A selection of my most recent and impactful projects.</p>
+            </div>
+            
+            <div class="work-grid">
+                <article class="project-card fade-in" data-category="branding print social" data-modal-img-src="images/project-modal-placeholder-bl-beer.jpg">
+                    <div class="project-image">
+                        <img src="images/black-lion-lighter-visual-(NEW)-Camera.jpg" alt="Black Lion Craft Beer" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Branding / Print</span>
+                        <h4>Black Lion Craft Beer</h4>
+                        <p class="short-desc">Adapting visual concepts with AI enhancements.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in delay-1" data-category="ai print branding packaging" data-modal-img-src="images/project-modal-placeholder-bl-sup.jpg">
+                    <div class="project-image">
+                        <img src="images/black-lion-sup-board-final.png" alt="Black Lion SUP Board" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">AI / Print / Branding</span>
+                        <h4>Black Lion SUP Board</h4>
+                        <p class="short-desc">Creative outdoor advertising concept.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in delay-2" data-category="social print" data-modal-img-src="images/project-modal-placeholder-alcorium-bottle.jpg">
+                    <div class="project-image">
+                        <img src="images/ახალი-ბოთლით-close-ups-05.06.png" alt="Alcorium Bottle Close-up" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Social Media / Print</span>
+                        <h4>Alcorium: Bottle Close-ups</h4>
+                        <p class="short-desc">Product detail photography for marketing materials.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in delay-3" data-category="print branding illustration" data-modal-img-src="images/project-modal-placeholder-bl-cup.jpg">
+                    <div class="project-image">
+                        <img src="images/open-cup-black-lion-12.03.png" alt="Black Lion Open Cup" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Print / Branding</span>
+                        <h4>Black Lion Open Cup Event</h4>
+                        <p class="short-desc">Event branding for craft beer competition.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in" data-category="ai social" data-modal-img-src="images/project-modal-placeholder-kfc-social-1.jpg">
+                    <div class="project-image">
+                        <img src="images/KFC-06.03-2.png" alt="KFC Social Media AI Posts" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">AI / Social Media</span>
+                        <h4>KFC Social Media</h4>
+                        <p class="short-desc">Using AI to create dynamic social media content.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+
+                <article class="project-card fade-in delay-1" data-category="social branding" data-modal-img-src="images/project-modal-placeholder-alcorium-plants.jpg">
+                    <div class="project-image">
+                        <img src="images/ახალი-ბოთლით-plants-Camera.png" alt="Alcorium Bottle Plants" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <span class="category-tag">Social Media / Branding</span>
+                        <h4>Alcorium Revamp</h4>
+                        <p class="short-desc">Establishing a fresh visual identity for social media.</p>
+                        <button class="view-project">View Project</button>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="portfolio.html" class="cta-button">View All Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="bg-text">WORKS</div>
+                <h2>Portfolio</h2>
+            </div>
+            <div class="portfolio-filters fade-in">
+                <button class="filter-btn" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI Design</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn" data-filter="motion">Motion</button>
+                <button class="filter-btn" data-filter="print">Print</button>
+                <button class="filter-btn" data-filter="web3">Web3</button>
+                <button class="filter-btn" data-filter="illustration">Illustration</button>
+                <button class="filter-btn" data-filter="typography">Typography</button>
+                <button class="filter-btn" data-filter="logo">Logo</button>
+            </div>
+
+            <div class="portfolio-grid fade-in" id="portfolio-grid">
+                <!-- Grid Sizer Elements for Isotope -->
+                <div class="grid-sizer"></div>
+                <div class="gutter-sizer"></div>
+                
+                <!-- Project Card 1 -->
+                <div class="project-card" data-category="ai branding" data-modal-img-src="images/project-modal-placeholder-1.jpg">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/project-placeholder-1.jpg" alt="Dunkin' Logo Design">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">AI Design / Branding</span>
+                            <h4>Dunkin' Logo Concept</h4>
+                            <p class="short-desc">AI-enhanced branding concept for a classic American coffee chain.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="project-card" data-category="branding print" data-modal-img-src="images/project-modal-placeholder-2.jpg">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/project-placeholder-2.jpg" alt="Black Lion Craft Beer">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Branding / Print</span>
+                            <h4>Black Lion Craft Beer</h4>
+                            <p class="short-desc">Brand identity and packaging design for an artisanal beer company.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="project-card" data-category="social ai" data-modal-img-src="images/project-modal-placeholder-3.jpg">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/project-placeholder-3.jpg" alt="KFC Social Media">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Social Media / AI</span>
+                            <h4>KFC Social Campaign</h4>
+                            <p class="short-desc">AI-driven social media content strategy for restaurant chain.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="project-card" data-category="web3 illustration" data-modal-img-src="images/project-modal-placeholder-4.jpg">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/project-placeholder-4.jpg" alt="NFT Project">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Web3 / Illustration</span>
+                            <h4>Lollipop NFT Collection</h4>
+                            <p class="short-desc">Collection of unique digital assets for the blockchain community.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="project-card" data-category="logo branding" data-modal-img-src="images/project-modal-placeholder-5.jpg">
+                    <div class="project-card-inner">
+                        <div class="project-image">
+                            <img src="images/project-placeholder-5.jpg" alt="Logofolio">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Logo Design</span>
+                            <h4>Logofolio 2023</h4>
+                            <p class="short-desc">Collection of brand marks and logos created for various clients.</p>
+                            <button class="view-project">View Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="bg-text">CAREER</div>
+                <h2>Experience</h2>
+                <p class="large-text">My professional journey in the creative industry.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-period">2021 - Present</span>
+                        <h3 class="timeline-company">Creative Agency X</h3>
+                        <p class="timeline-role">Senior Design Lead</p>
+                        <p class="timeline-description">
+                            Leading a team of designers to create innovative visual solutions for global brands. Responsible for client strategy, creative direction, and implementing cutting-edge design technologies including AI and AR/VR experiences.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-period">2018 - 2021</span>
+                        <h3 class="timeline-company">Design Studio Y</h3>
+                        <p class="timeline-role">Senior Graphic Designer</p>
+                        <p class="timeline-description">
+                            Conceptualized and executed visual design solutions for clients across various industries. Specialized in brand identity, packaging design, and digital marketing materials. Led a team of junior designers on key accounts.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-period">2016 - 2018</span>
+                        <h3 class="timeline-company">Digital Marketing Z</h3>
+                        <p class="timeline-role">Visual Designer</p>
+                        <p class="timeline-description">
+                            Created compelling visual content for social media campaigns, digital advertisements, and web assets. Collaborated with marketing teams to develop and implement brand guidelines for various clients.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="bg-text">CONNECT</div>
+                <h2>Let's Work Together</h2>
+                <p class="section-subtitle">Have a project in mind or want to discuss potential collaboration? I'd love to hear from you.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form fade-in-left">
+                    <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-details fade-in-right">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out through any of these channels. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" fill="currentColor"/></svg>
+                            </div>
+                            <a href="mailto:john@kvezereli.com">john@kvezereli.com</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 16.42v3.536a1 1 0 0 1-.93.998c-.437.03-.794.046-1.07.046-8.837 0-16-7.163-16-16 0-.276.015-.633.046-1.07A1 1 0 0 1 4.044 3H7.58a.5.5 0 0 1 .498.45c.023.23.044.413.064.552A13.901 13.901 0 0 0 9.35 8.003c.095.2.033.439-.147.567l-2.158 1.542a13.047 13.047 0 0 0 6.844 6.844l1.54-2.154a.462.462 0 0 1 .573-.149 13.901 13.901 0 0 0 4 1.205c.139.02.322.042.55.064a.5.5 0 0 1 .449.498z" fill="currentColor"/></svg>
+                            </div>
+                            <a href="tel:+995123456789">+995 123 456 789</a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 20.9l4.95-4.95a7 7 0 1 0-9.9 0L12 20.9zm0 2.828l-6.364-6.364a9 9 0 1 1 12.728 0L12 23.728zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="currentColor"/></svg>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener">Tbilisi, Georgia</a>
+                        </div>
+                    </div>
+                    
+                    <h3 class="social-title">Connect Socially</h3>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/john-kvezereli" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://behance.net/johnkvezereli" target="_blank" rel="noopener" aria-label="Behance">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.443 5.35c.639 0 1.23.05 1.77.198a3.83 3.83 0 0 1 1.377.544c.394.247.689.594.885 1.039.197.445.295.99.295 1.583 0 .693-.147 1.286-.491 1.731-.295.446-.787.841-1.377 1.138.836.248 1.475.693 1.868 1.286.394.594.64 1.336.64 2.177 0 .693-.148 1.286-.394 1.781-.246.495-.639.94-1.082 1.237a5.078 5.078 0 0 1-1.573.692c-.59.148-1.18.247-1.77.247H1V5.35h6.443zm-.246 5.792c.541 0 .984-.148 1.328-.395.344-.247.492-.693.492-1.237 0-.297-.05-.594-.148-.791-.098-.198-.246-.347-.442-.495-.197-.099-.394-.198-.64-.247-.246-.05-.491-.05-.787-.05H4.426v3.216h2.771v-.001zm.246 6.187c.344 0 .639-.05.885-.099a1.92 1.92 0 0 0 .688-.297 1.806 1.806 0 0 0 .492-.544c.098-.247.197-.544.197-.89 0-.693-.197-1.188-.59-1.534-.394-.297-.934-.445-1.573-.445H4.426v3.81h3.017v-.001zM18.082 6.687c.885 0 1.673.148 2.361.445.689.297 1.23.693 1.673 1.188.443.495.787 1.09.984 1.781.246.693.345 1.386.345 2.177 0 .247 0 .445-.049.594 0 .148-.049.247-.049.346H16.409c.049.792.345 1.385.885 1.682.541.297 1.18.445 1.868.445.64 0 1.23-.099 1.77-.346.542-.247.935-.544 1.279-.89l1.771 1.534c-.541.594-1.181 1.039-1.919 1.336-.787.297-1.574.445-2.41.445-.886 0-1.722-.148-2.41-.445a4.912 4.912 0 0 1-1.87-1.237 6.089 6.089 0 0 1-1.228-1.831c-.295-.742-.393-1.534-.393-2.375 0-.841.098-1.633.393-2.375.295-.693.689-1.336 1.23-1.831a6.086 6.086 0 0 1 1.867-1.237c.738-.347 1.525-.495 2.41-.495zm-.099 2.722c-.59 0-1.132.148-1.574.495-.442.297-.738.841-.836 1.534h4.656c-.049-.594-.246-1.089-.639-1.435-.343-.396-.935-.594-1.607-.594zM24 5.35h-4.656v1.98H24V5.35z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://instagram.com/johnkvezereli" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.25a1.25 1.25 0 0 1-2.5 0 1.25 1.25 0 0 1 2.5 0zM12 4c-2.474 0-2.878.007-4.029.058-.784.037-1.31.142-1.798.332-.434.168-.747.369-1.08.703a2.89 2.89 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.006 9.075 4 9.461 4 12c0 2.474.007 2.878.058 4.029.037.783.142 1.31.331 1.797.17.435.37.748.702 1.08.337.336.65.537 1.08.703.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.474 0 2.878-.007 4.029-.058.782-.037 1.309-.142 1.797-.331.433-.169.748-.37 1.08-.702.337-.337.538-.65.704-1.08.19-.493.296-1.02.332-1.8.052-1.104.058-1.49.058-4.029 0-2.474-.007-2.878-.058-4.029-.037-.782-.142-1.31-.332-1.798a2.911 2.911 0 0 0-.703-1.08 2.884 2.884 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.925 4.006 14.539 4 12 4zm0-2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://dribbble.com/johnkvezereli" target="_blank" rel="noopener" aria-label="Dribbble">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.989 11.572a7.96 7.96 0 0 0-1.573-4.351 9.749 9.749 0 0 1-.92.87 13.157 13.157 0 0 1-3.313 2.01c.167.35.32.689.455 1.009v.003a9.186 9.186 0 0 1 .11.27c1.514-.17 3.11-.108 4.657.101.206.028.4.058.584.088zm-9.385-7.45a46.164 46.164 0 0 1 2.692 4.27c1.223-.482 2.234-1.09 3.048-1.767a7.88 7.88 0 0 0 .796-.755A7.968 7.968 0 0 0 12 4a8.05 8.05 0 0 0-1.396.121zM4.253 9.997a29.21 29.21 0 0 0 2.04-.123 31.53 31.53 0 0 0 4.862-.822 54.365 54.365 0 0 0-2.7-4.227 8.018 8.018 0 0 0-4.202 5.172zm1.53 7.038c.388-.567.898-1.205 1.575-1.899 1.454-1.49 3.17-2.65 5.156-3.29l.062-.018c-.165-.364-.32-.689-.476-.995-1.836.535-3.77.869-5.697 1.042-.94.085-1.783.122-2.403.128a7.967 7.967 0 0 0 1.784 5.032zm9.222 2.38a35.947 35.947 0 0 0-1.632-5.709c-2.002.727-3.597 1.79-4.83 3.058a9.77 9.77 0 0 0-1.317 1.655A7.964 7.964 0 0 0 12 20a7.977 7.977 0 0 0 3.005-.583zm1.873-1.075a7.998 7.998 0 0 0 2.987-4.87c-.34-.085-.771-.17-1.245-.236a12.023 12.023 0 0 0-3.18-.033 39.368 39.368 0 0 1 1.438 5.14zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">John Kvezereli</a>
+                </div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Work</a></li>
+                        <li><a href="#career">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="https://behance.net/" aria-label="Behance">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 8.625H8.25"></path><path d="M1.5 15.75H8.25"></path><path d="M16.5 15.75C19 15.75 21 14.25 21 12C21 9.75 19 8.25 16.5 8.25C14 8.25 12 9.75 12 12C12 14.25 14 15.75 16.5 15.75Z"></path><path d="M16.5 8.25C18.5 8.25 20 7.2 20 5.625C20 4.05 18.5 3 16.5 3C14.5 3 13 4.05 13 5.625C13 7.2 14.5 8.25 16.5 8.25Z"></path></svg>
+                    </a>
+                    <a href="https://instagram.com/" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://dribbble.com/" aria-label="Dribbble">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; <span id="current-year">2023</span> John Kvezereli. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top"></button> <!-- TODO: Add an SVG or icon font for the arrow -->
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="modal-content">
+            <button id="modalClose" class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="">
+                <h3 id="modalTitle"></h3>
+                <div id="modalDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts - Consolidated for better performance -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/contact-form.js" defer></script>
+    <script src="js/theme-toggle.js" defer></script>
+    
+    <!-- Main JavaScript - Non-blocking and optimized -->
+    <script>
+        // DOM content loaded handler - runs as soon as DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force content visibility immediately
+            document.documentElement.style.visibility = 'visible';
+            document.documentElement.style.opacity = '1';
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = '1';
+            
+            // Clear the emergency preloader timeout
+            if(window.PRELOADER_TIMEOUT) clearTimeout(window.PRELOADER_TIMEOUT);
+            
+            // Setup main navigation
+            setupNavigation();
+            
+            // Update copyright year
+            updateCopyrightYear();
+            
+            // Setup IntersectionObserver for animations
+            setupScrollAnimations();
+            
+            // Setup smooth scrolling
+            setupSmoothScroll();
+            
+            // Initialize components that can start before full load
+            initializeComponents();
+        });
+        
+        // Page fully loaded handler - runs when all resources are loaded
+        window.addEventListener('load', function() {
+            // Hide preloader when everything is loaded
+            hidePreloader();
+            
+            // Initialize components that should wait for full load
+            initializeComponentsAfterLoad();
+        });
+        
+        /**
+         * Function Definitions
+         */
+        
+        // Hide preloader with animation
+        function hidePreloader() {
+            const preloader = document.querySelector('[data-preloader]');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.classList.add('hidden');
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('loading');
+                    document.body.classList.add('loaded');
+                }, 300);
+            }
+        }
+        
+        // Setup main navigation
+        function setupNavigation() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('show');
+                    this.classList.toggle('active');
+                    document.body.classList.toggle('nav-open');
+                });
+            }
+            
+            // Add scroll class to navigation
+            const mainNav = document.querySelector('.main-nav');
+            if (mainNav) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        mainNav.classList.add('scrolled');
+                    } else {
+                        mainNav.classList.remove('scrolled');
+                    }
+                });
+            }
+        }
+        
+        // Update copyright year
+        function updateCopyrightYear() {
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+        }
+        
+        // Setup intersection observer for scroll animations
+        function setupScrollAnimations() {
+            // Create observer for fade-in elements
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                fadeObserver.observe(el);
+            });
+            
+            // Create observer for timeline items
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observe all timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                timelineObserver.observe(item);
+            });
+        }
+        
+        // Setup smooth scrolling
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    // Skip empty anchors
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Smooth scroll to element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navLinks = document.querySelector('.nav-links');
+                        const navToggle = document.querySelector('.nav-toggle');
+                        if (navLinks && navToggle) {
+                            navLinks.classList.remove('show');
+                            navToggle.classList.remove('active');
+                            document.body.classList.remove('nav-open');
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize components that can start before full page load
+        function initializeComponents() {
+            // Setup scroll progress indicator
+            const scrollProgress = document.querySelector('.scroll-progress-bar');
+            if (scrollProgress) {
+                window.addEventListener('scroll', function() {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    scrollProgress.style.width = scrolled + "%";
+                });
+            }
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+        
+        // Initialize components that should wait for full page load
+        function initializeComponentsAfterLoad() {
+            // Initialize Swiper if it exists
+            if (typeof Swiper !== 'undefined' && document.querySelector('.swiper')) {
+                new Swiper('.swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    breakpoints: {
+                        640: { slidesPerView: 1 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 }
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
