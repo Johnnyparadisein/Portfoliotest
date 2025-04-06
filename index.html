@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preload" href="styles/fallback.css" as="style">
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <!-- Fallback CSS (loads first to ensure visibility) -->
     <link rel="stylesheet" href="styles/fallback.css">
     
@@ -19,7 +22,7 @@
     <meta name="keywords" content="John Kvezereli, designer, graphic design, AI design, motion design, digital art, creative portfolio, visual design, branding">
     <meta name="author" content="John Kvezereli">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#ff4d00">
+    <meta name="theme-color" content="#6e56cf">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -56,16 +59,16 @@
     <style>
         /* Inline critical CSS for immediate rendering */
         :root {
-            --bg-dark-primary: #141414;
+            --bg-dark-primary: #0a0a0a;
             --text-light: #ffffff;
-            --accent-primary: #ff4d00;
+            --accent-primary: #6e56cf;
         }
         body {
             background-color: var(--bg-dark-primary);
             color: var(--text-light);
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: 'Inter', sans-serif;
             min-height: 100vh;
             visibility: visible !important;
             opacity: 1 !important;
@@ -85,9 +88,9 @@
         .loader {
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(255, 77, 0, 0.3);
+            border: 3px solid rgba(110, 86, 207, 0.3);
             border-radius: 50%;
-            border-top-color: #ff4d00;
+            border-top-color: #6e56cf;
             animation: spin 1s linear infinite;
         }
         @keyframes spin {
