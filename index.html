@@ -22,7 +22,7 @@
     <meta name="keywords" content="John Kvezereli, designer, graphic design, AI design, motion design, digital art, creative portfolio, visual design, branding">
     <meta name="author" content="John Kvezereli">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#6e56cf">
+    <meta name="theme-color" content="#00f0ff">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -59,9 +59,9 @@
     <style>
         /* Inline critical CSS for immediate rendering */
         :root {
-            --bg-dark-primary: #0a0a0a;
+            --bg-dark-primary: #080808;
             --text-light: #ffffff;
-            --accent-primary: #6e56cf;
+            --accent-primary: #00f0ff;
         }
         body {
             background-color: var(--bg-dark-primary);
@@ -88,14 +88,49 @@
         .loader {
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(110, 86, 207, 0.3);
+            border: 3px solid rgba(0, 240, 255, 0.3);
             border-radius: 50%;
-            border-top-color: #6e56cf;
+            border-top-color: #00f0ff;
             animation: spin 1s linear infinite;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--accent-primary);
+            color: var(--bg-dark-primary);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: var(--z-fixed);
+            box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--text-light);
+            color: var(--accent-primary);
+            transform: translateY(-5px);
         }
     </style>
     
@@ -483,16 +518,16 @@
                 <h2>Portfolio</h2>
             </div>
             <div class="portfolio-filters fade-in">
-                <button class="filter-btn" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI Design</button>
-                <button class="filter-btn" data-filter="branding">Branding</button>
-                <button class="filter-btn" data-filter="social">Social Media</button>
-                <button class="filter-btn" data-filter="motion">Motion</button>
-                <button class="filter-btn" data-filter="print">Print</button>
-                <button class="filter-btn" data-filter="web3">Web3</button>
-                <button class="filter-btn" data-filter="illustration">Illustration</button>
-                <button class="filter-btn" data-filter="typography">Typography</button>
-                <button class="filter-btn" data-filter="logo">Logo</button>
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="ai">AI DESIGN</button>
+                <button class="filter-btn" data-filter="branding">BRANDING</button>
+                <button class="filter-btn" data-filter="social">SOCIAL MEDIA</button>
+                <button class="filter-btn" data-filter="motion">MOTION</button>
+                <button class="filter-btn" data-filter="print">PRINT</button>
+                <button class="filter-btn" data-filter="web3">WEB3</button>
+                <button class="filter-btn" data-filter="illustration">ILLUSTRATION</button>
+                <button class="filter-btn" data-filter="typography">TYPOGRAPHY</button>
+                <button class="filter-btn" data-filter="logo">LOGO</button>
             </div>
 
             <div class="portfolio-grid fade-in" id="portfolio-grid">
@@ -504,10 +539,11 @@
                 <div class="project-card" data-category="ai branding" data-modal-img-src="images/project-modal-placeholder-1.jpg">
                     <div class="project-card-inner">
                         <div class="project-image">
-                            <img src="images/project-placeholder-1.jpg" alt="Dunkin' Logo Design">
+                            <img src="images/project-placeholder-1.jpg" alt="Dunkin' Logo Design" loading="lazy">
+                            <div class="project-overlay"></div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">AI Design / Branding</span>
+                            <span class="category-tag">AI Design / Branding</span>
                             <h4>Dunkin' Logo Concept</h4>
                             <p class="short-desc">AI-enhanced branding concept for a classic American coffee chain.</p>
                             <button class="view-project">View Project</button>
@@ -519,10 +555,11 @@
                 <div class="project-card" data-category="branding print" data-modal-img-src="images/project-modal-placeholder-2.jpg">
                     <div class="project-card-inner">
                         <div class="project-image">
-                            <img src="images/project-placeholder-2.jpg" alt="Black Lion Craft Beer">
+                            <img src="images/project-placeholder-2.jpg" alt="Black Lion Craft Beer" loading="lazy">
+                            <div class="project-overlay"></div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Branding / Print</span>
+                            <span class="category-tag">Branding / Print</span>
                             <h4>Black Lion Craft Beer</h4>
                             <p class="short-desc">Brand identity and packaging design for an artisanal beer company.</p>
                             <button class="view-project">View Project</button>
@@ -534,10 +571,11 @@
                 <div class="project-card" data-category="social ai" data-modal-img-src="images/project-modal-placeholder-3.jpg">
                     <div class="project-card-inner">
                         <div class="project-image">
-                            <img src="images/project-placeholder-3.jpg" alt="KFC Social Media">
+                            <img src="images/project-placeholder-3.jpg" alt="KFC Social Media" loading="lazy">
+                            <div class="project-overlay"></div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Social Media / AI</span>
+                            <span class="category-tag">Social Media / AI</span>
                             <h4>KFC Social Campaign</h4>
                             <p class="short-desc">AI-driven social media content strategy for restaurant chain.</p>
                             <button class="view-project">View Project</button>
@@ -549,10 +587,11 @@
                 <div class="project-card" data-category="web3 illustration" data-modal-img-src="images/project-modal-placeholder-4.jpg">
                     <div class="project-card-inner">
                         <div class="project-image">
-                            <img src="images/project-placeholder-4.jpg" alt="NFT Project">
+                            <img src="images/project-placeholder-4.jpg" alt="NFT Project" loading="lazy">
+                            <div class="project-overlay"></div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Web3 / Illustration</span>
+                            <span class="category-tag">Web3 / Illustration</span>
                             <h4>Lollipop NFT Collection</h4>
                             <p class="short-desc">Collection of unique digital assets for the blockchain community.</p>
                             <button class="view-project">View Project</button>
@@ -564,10 +603,11 @@
                 <div class="project-card" data-category="logo branding" data-modal-img-src="images/project-modal-placeholder-5.jpg">
                     <div class="project-card-inner">
                         <div class="project-image">
-                            <img src="images/project-placeholder-5.jpg" alt="Logofolio">
+                            <img src="images/project-placeholder-5.jpg" alt="Logofolio" loading="lazy">
+                            <div class="project-overlay"></div>
                         </div>
                         <div class="project-info">
-                            <span class="project-category">Logo Design</span>
+                            <span class="category-tag">Logo Design</span>
                             <h4>Logofolio 2023</h4>
                             <p class="short-desc">Collection of brand marks and logos created for various clients.</p>
                             <button class="view-project">View Project</button>
@@ -720,24 +760,24 @@
                 </div>
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Work</a></li>
-                        <li><a href="#career">Experience</a></li>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about-skills">About</a></li>
+                        <li><a href="#featured-work">Work</a></li>
+                        <li><a href="#experience">Experience</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="footer-social">
-                    <a href="https://linkedin.com/" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/john-kvezereli" target="_blank" rel="noopener" aria-label="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                     </a>
-                    <a href="https://behance.net/" aria-label="Behance">
+                    <a href="https://behance.net/johnkvezereli" target="_blank" rel="noopener" aria-label="Behance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 8.625H8.25"></path><path d="M1.5 15.75H8.25"></path><path d="M16.5 15.75C19 15.75 21 14.25 21 12C21 9.75 19 8.25 16.5 8.25C14 8.25 12 9.75 12 12C12 14.25 14 15.75 16.5 15.75Z"></path><path d="M16.5 8.25C18.5 8.25 20 7.2 20 5.625C20 4.05 18.5 3 16.5 3C14.5 3 13 4.05 13 5.625C13 7.2 14.5 8.25 16.5 8.25Z"></path></svg>
                     </a>
-                    <a href="https://instagram.com/" aria-label="Instagram">
+                    <a href="https://instagram.com/johnkvezereli" target="_blank" rel="noopener" aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://dribbble.com/" aria-label="Dribbble">
+                    <a href="https://dribbble.com/johnkvezereli" target="_blank" rel="noopener" aria-label="Dribbble">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path></svg>
                     </a>
                 </div>
@@ -749,22 +789,30 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" aria-label="Back to top"></button> <!-- TODO: Add an SVG or icon font for the arrow -->
+    <button class="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <!-- Project Modal -->
-    <div id="projectModal" class="project-modal">
-        <div class="modal-content">
-            <button id="modalClose" class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-body">
-                <img id="modalImage" src="" alt="">
-                <h3 id="modalTitle"></h3>
-                <div id="modalDescription"></div>
+    <div id="project-modal" class="modal">
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Close modal">&times;</button>
+            <img id="modal-image" class="modal-image" src="" alt="">
+            <div class="modal-content">
+                <h3 class="modal__title"></h3>
+                <div id="modal-content"></div>
             </div>
         </div>
     </div>
 
     <!-- Scripts - Consolidated for better performance -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/filters.js"></script>
     <script src="js/contact-form.js" defer></script>
     <script src="js/theme-toggle.js" defer></script>
     

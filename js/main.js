@@ -25,24 +25,32 @@
 // });
 
 // Back to Top Button
-const backToTop = document.createElement('button');
-backToTop.classList.add('back-to-top');
-backToTop.innerHTML = '↑';
-document.body.appendChild(backToTop);
+// const backToTop = document.createElement('button');
+// backToTop.classList.add('back-to-top');
+// backToTop.innerHTML = '↑';
+// document.body.appendChild(backToTop);
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        backToTop.classList.add('visible');
-    } else {
-        backToTop.classList.remove('visible');
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
     }
 });
 
-backToTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
 
 // Project Filter Animations - REMOVED (Likely handled by Isotope in filters.js)
@@ -201,39 +209,47 @@ document.addEventListener('DOMContentLoaded', function() {
                     navLinks.classList.remove('show');
                 }
                 
-                // Smooth scroll to target
+                // Get header height for offset
+                const headerOffset = document.querySelector('.main-nav').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
         });
     });
+    
+    // Update copyright year
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 });
 
 // Helper function to check if an element is in viewport
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
         rect.bottom >= 0
     );
 }
 
 // Helper function to add simple parallax effect
 function createParallaxEffect() {
-    document.addEventListener('scroll', function() {
-        const parallaxElements = document.querySelectorAll('[data-parallax]');
-        parallaxElements.forEach(element => {
-            const speed = element.getAttribute('data-parallax-speed') || 0.3;
-            const yPos = -(window.scrollY * speed);
-            element.style.transform = `translateY(${yPos}px)`;
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    
+    window.addEventListener('scroll', () => {
+        parallaxElements.forEach(el => {
+            const speed = parseFloat(el.getAttribute('data-parallax')) || 0.2;
+            const offset = window.scrollY * speed;
+            el.style.transform = `translateY(${offset}px)`;
         });
     });
 }
 
-// Update current year in footer
-const yearElement = document.getElementById('current-year');
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-} 
+// Initialize parallax if enabled
+createParallaxEffect(); 
